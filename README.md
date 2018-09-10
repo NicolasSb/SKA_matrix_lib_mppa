@@ -10,6 +10,7 @@ Please, first transfer your data on a cluster and then call the profided functio
 ## build and linking
 
 ###build
+
 To build the lib simply copy the provided files on the MPPA in a new folder.
 Open a terminal and go in this folder 
 ```
@@ -23,14 +24,18 @@ you can find the library in the newly created directory :
 <folder>/output/lib/cluster/libmatrix_c.a		for the cluster static lib
 
 ###linking
+
 ### linking on the clusters
+
 To link the library on the cluster add <path_to_cluster_lib>/libmatrix_c.a to the "cluster-lflags" line of your makefile.
 
 ### linking on the io
+
 To link the library on the cluster add <path_to_io_lib>/libmatrix\_io.a to the "io\_bin-lflags" line of your makefile.
 
 
 ## IMPORTANT 
+
 The library is parallelized with openMP dont forget to add the -fopenmp option to the following lines of your makefile:
 
 _cluster-cflags_
@@ -39,5 +44,6 @@ _io\_bin-cflags_
 _io\_bin-lflags_
 
 # Communication
+
 Matrices are not allocated in one block. To transfer the data from the io to a cluster, 
 do not send the pointer of the matrix, send the pointer its data instead and reconstruct the matrix afterwards.
