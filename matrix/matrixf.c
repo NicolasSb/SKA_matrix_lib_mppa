@@ -16,6 +16,11 @@
     #include <HAL/hal/board/boot_args.h>
 #endif
 
+/**
+ * @file matrixd.c to handle matrix operations for floats
+ * @author Nicolas Sourbier
+ * @date 10/09/2018
+ **/
 
 void printMatrixF(Matrix_f *a)
 {

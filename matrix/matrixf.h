@@ -15,7 +15,7 @@
 
 
 
-/*	Previously defined property matrix enum (view matrix_type.h)
+/**	Previously defined property matrix enum (view matrix_type.h)
 
 typedef enum M_Property
 {
@@ -107,7 +107,6 @@ void matrixSetF(Matrix_f *A, unsigned int i, unsigned int j, const float c);
      * @brief scaleMatrixF multiply each data by a constant ()
      * @param a the matrix to scale
      * @param c the 
-     * @todo Parallel programming
      */
 void scaleMatrixF(Matrix_f *a, const float c);
 
@@ -115,7 +114,6 @@ void scaleMatrixF(Matrix_f *a, const float c);
      * @brief addMatrixF compute A = A+B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
      */
 void addMatrixF(Matrix_f *a, Matrix_f *b);
 
@@ -124,7 +122,6 @@ void addMatrixF(Matrix_f *a, Matrix_f *b);
 	 * BT being the transposed matrix of B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
      */
 void addMatrixTF(Matrix_f *a, Matrix_f *b);
 
@@ -132,7 +129,6 @@ void addMatrixTF(Matrix_f *a, Matrix_f *b);
      * @brief subMatrixF compute A = A-B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
      */
 void subMatrixF(Matrix_f *a, Matrix_f *b);
 

@@ -16,6 +16,13 @@
     #include <HAL/hal/board/boot_args.h>
 #endif
 
+
+/**
+ * @file matrixcf.c to handle matrix operations for complex float
+ * @author Nicolas Sourbier
+ * @date 10/09/2018
+ **/
+
 void printMatrixCF(Matrix_cf *a)
 {
     if(a)
@@ -233,7 +240,7 @@ void subMatrixCF(Matrix_cf *a, Matrix_cf *b)
     }
 }
 
-void mulMatrixF(Matrix_cf *a, Matrix_cf *b, Matrix_cf *c)
+void mulMatrixCF(Matrix_cf *a, Matrix_cf *b, Matrix_cf *c)
 {
 	if( a && b && c)
 	{
@@ -290,7 +297,7 @@ void scaleLineCF(Matrix_cf *a, unsigned int i, Complex_f f)
     }
 }
 
-int subXLinesF(Matrix_cf *a, unsigned int i, unsigned int i2, Complex_f f)
+int subXLinesCF(Matrix_cf *a, unsigned int i, unsigned int i2, Complex_f f)
 {
     int ret = 1;
     if(a)
@@ -317,7 +324,7 @@ int subXLinesF(Matrix_cf *a, unsigned int i, unsigned int i2, Complex_f f)
     return ret;
 }
 
-void mulAddScaleMatrixF(Matrix_cf *result, Matrix_cf *mul1, Matrix_cf *mul2, Matrix_cf * add, Complex_f l, Complex_f s)
+void mulAddScaleMatrixCF(Matrix_cf *result, Matrix_cf *mul1, Matrix_cf *mul2, Matrix_cf * add, Complex_f l, Complex_f s)
 {
 	unsigned int i, j, k;
 	Complex_f tmp = createNulComplexF();
@@ -358,7 +365,7 @@ void mulAddScaleMatrixF(Matrix_cf *result, Matrix_cf *mul1, Matrix_cf *mul2, Mat
 }
 
 
-int isDiagF(Matrix_cf *a)
+int isDiagCF(Matrix_cf *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -373,7 +380,7 @@ int isDiagF(Matrix_cf *a)
 	return 1;
 }
 
-int isTriUF(Matrix_cf *a)
+int isTriUCF(Matrix_cf *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -390,7 +397,7 @@ int isTriUF(Matrix_cf *a)
 	return 1;
 }
 
-int isTriLF(Matrix_cf *a)
+int isTriLCF(Matrix_cf *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -407,7 +414,7 @@ int isTriLF(Matrix_cf *a)
 	return 1;
 }
 
-int isSparseF(Matrix_cf *a)
+int isSparseCF(Matrix_cf *a)
 {
 	unsigned int i, j;
 	float count = 0.;
@@ -431,7 +438,7 @@ int isSparseF(Matrix_cf *a)
 
 
 
-
+/*
 
 
 void compute_data_vectorCF(Matrix_cf *jac, Matrix_cf *A,  Matrix_cf *res, int na)
@@ -448,7 +455,7 @@ void compute_data_vectorCF(Matrix_cf *jac, Matrix_cf *A,  Matrix_cf *res, int na
 	}
 }
 
-void giveJfF(Matrix_cf *A, Matrix_i * lbl, Matrix_cf *jac, int na)
+void giveJCF(Matrix_cf *A, Matrix_i * lbl, Matrix_cf *jac, int na)
 {
     if(A && jac)
     {
@@ -465,4 +472,4 @@ void giveJfF(Matrix_cf *A, Matrix_i * lbl, Matrix_cf *jac, int na)
             }
         }
     }
-}
+}*/

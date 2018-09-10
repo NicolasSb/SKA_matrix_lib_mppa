@@ -2,11 +2,14 @@
 #define COMPLEXD_H
 
 
-
+/**
+*	\struct Complex_d complex_d.h
+*	\brief complex double structure
+*/
 typedef struct Complex_d
 {
-    double re;
-    double im;
+    double re;/*!<real part of the complex. */
+    double im;/*!< imaginary part of the complex */
 }Complex_d;
 
 
@@ -14,14 +17,15 @@ typedef struct Complex_d
  *          ---- Useful functions for double complexes ----
  * *******************************************************************/
 
-/*
+/**
  *	@brief test the equality of two doubles relatively to a precision
- *	@param a and b, the doubles to compare
+ *	@param a and @param b the doubles to compare.
+ *  @param precis the precision of the comparison
  *	@return 1 if equal, 0 otherwise
  */
 int equals_d(double a, double b, double precis);
 
-/*
+/**
  *	@brief test if a complex is NULL relatively to a precision
  *	@param a and b, the doubles to compare
  *	@return 1 if equal, 0 otherwise
@@ -121,5 +125,5 @@ Complex_d createComplexD(double re, double im);
 void printComplexD(Complex_d a);
 
 
-#endif /* COMPLEXD_H*/
+#endif /** COMPLEXD_H*/
 

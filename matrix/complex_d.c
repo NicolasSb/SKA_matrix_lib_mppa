@@ -3,6 +3,11 @@
 #include <math.h>
 #include "complex_d.h"
 
+/**
+ * @file complex_d.c to handle basic complexes functions
+ * @author Nicolas Sourbier
+ * @date 10/09/2018
+ **/
 
 int equals_d(double a, double b, double precis)
 {

@@ -58,23 +58,21 @@ Matrix_cd * createRandomMatrixCD(unsigned int rows, unsigned int column);
 
 /**
      * @brief createRandomMatrix initialize a random Matrix
-     * @param rows number of rows
-     * @param column number of columns
+     * @param J a matrix to fill with zeros
      * @return the random matrix
      */
 void createZeroMatrixCD(Matrix_cd *J);
 
 /**
      * @brief createTestVector initialize a known vector of size 3:1
-     * @param rows number of rows
-     * @param column number of columns
+     * @param type (1 or 2) you've got choice between two test vectors
      * @return the random matrix
      */
 Matrix_cd *createTestVectorCD(unsigned int type);
 
 /**
      * @brief createIdentityCD compute the identoty matrix
-     * @param I A pointer to store the result
+     * @param id A pointer to store the result
      */
 void createIdentityCD(Matrix_cd *id);
 
@@ -107,7 +105,7 @@ void matrixSetCD(Matrix_cd *A, unsigned int i, unsigned int j, const Complex_d c
      * @brief scaleMatrixCD multiply each data by a constant ()
      * @param a the matrix to scale
      * @param c the 
-     * @todo Parallel programming
+
      */
 void scaleMatrixCD(Matrix_cd *a, const Complex_d c);
 
@@ -115,7 +113,7 @@ void scaleMatrixCD(Matrix_cd *a, const Complex_d c);
      * @brief addMatrixCD compute A = A+B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void addMatrixCD(Matrix_cd *a, Matrix_cd *b);
 
@@ -124,7 +122,7 @@ void addMatrixCD(Matrix_cd *a, Matrix_cd *b);
 	 * BT being the transposed matrix of B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void addMatrixTCD(Matrix_cd *a, Matrix_cd *b);
 
@@ -132,7 +130,7 @@ void addMatrixTCD(Matrix_cd *a, Matrix_cd *b);
      * @brief subMatrixCD compute A = A-B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void subMatrixCD(Matrix_cd *a, Matrix_cd *b);
 
@@ -147,7 +145,7 @@ void mulMatrixCD(Matrix_cd *a, Matrix_cd *b, Matrix_cd *c);
 /**
      * @brief compute result = s*(mul1*mul2 + l*add)
      * @param result a matrix to store the result
-     * @param mul1 & mul2 matrices to multiply
+     * @param mul1 & @param mul2 matrices to multiply
      * @param add a matrix to add to the previous product
 	 * @param l a Complex_d to scale the add matrix
 	 * @param s a Complex_d to scale the result

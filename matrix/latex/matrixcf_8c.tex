@@ -1,0 +1,513 @@
+\hypertarget{matrixcf_8c}{}\section{matrixcf.\+c File Reference}
+\label{matrixcf_8c}\index{matrixcf.\+c@{matrixcf.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}matrixcf.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$omp.\+h$>$}\\*
+Include dependency graph for matrixcf.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matrixcf_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{matrixcf_8c_a442e1077e0c8060c0fdb9f86de1534a9}{print\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a)
+\begin{DoxyCompactList}\small\item\em print\+Matrix\+CF display a matrix of \hyperlink{structComplex__f}{Complex\+\_\+f} (usefull for testing) \end{DoxyCompactList}\item 
+\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$ \hyperlink{matrixcf_8c_a39e7a96197ea705a3691639ce475f5a5}{matrix\+Alloc\+CF} (unsigned int rows, unsigned int column)
+\begin{DoxyCompactList}\small\item\em matrix\+Alloc\+CF allocate memory for a matrix and initialize it to zero \end{DoxyCompactList}\item 
+\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$ \hyperlink{matrixcf_8c_a8db1179a10a7f134d7c63397a6c031b1}{create\+Random\+Matrix\+CF} (unsigned int rows, unsigned int column)
+\begin{DoxyCompactList}\small\item\em create\+Random\+Matrix initialize a random Matrix \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a3d6e512a8597edac8d6d060da8dce93b}{create\+Zero\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$J)
+\begin{DoxyCompactList}\small\item\em create\+Random\+Matrix initialize a random Matrix \end{DoxyCompactList}\item 
+\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$ \hyperlink{matrixcf_8c_a8856240cb751ea0059fd0a493f40e358}{create\+Test\+Vector\+CF} (unsigned int type)
+\begin{DoxyCompactList}\small\item\em create\+Test\+Vector initialize a known vector of size 3\+:1 \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_ac0c72559d97199f25cda818c603005d4}{create\+Identity\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$I)
+\begin{DoxyCompactList}\small\item\em create\+Identity\+CF compute the identoty matrix \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a3dc1b7b64de877b4c5ed94e77faef6b5}{free\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$A)
+\begin{DoxyCompactList}\small\item\em free\+Matrix\+CF free a \hyperlink{structComplex__f}{Complex\+\_\+f} matrix \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{matrixcf_8c_ae9ce7ec96f11928ce01ac46edaacf09b}{matrix\+Get\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$A, unsigned int i, unsigned int j)
+\begin{DoxyCompactList}\small\item\em matrix\+Get\+CF access a specified data of a matrix \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_abb32dd6231976a0dbda098df6dd3386f}{matrix\+Set\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$A, unsigned int i, unsigned int j, const \hyperlink{structComplex__f}{Complex\+\_\+f} c)
+\begin{DoxyCompactList}\small\item\em matrix\+Set\+CF set the value of a specified data \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a4ed28ec9b93a048f236a5440dd126dad}{scale\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, const \hyperlink{structComplex__f}{Complex\+\_\+f} c)
+\begin{DoxyCompactList}\small\item\em scale\+Matrix\+CF multiply each data by a constant () \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a23d12aacfcc8c0c22953955b9de082a3}{add\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$b)
+\begin{DoxyCompactList}\small\item\em add\+Matrix\+CF compute A = A+B \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_acb2f4bca1c5a589a83dd21b0847de0f7}{add\+Matrix\+T\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$b)
+\begin{DoxyCompactList}\small\item\em add\+Matrix\+T\+CF compute A = A+\+BT BT being the transposed matrix of B \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a94030ea97022060031fe3bd7b19fb507}{sub\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$b)
+\begin{DoxyCompactList}\small\item\em sub\+Matrix\+CF compute A = A-\/B \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a9c7a762d9828fdf2b62075ed047f448b}{mul\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$b, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$c)
+\begin{DoxyCompactList}\small\item\em compute C = A$\ast$B \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_ad81900663e5a729a4d887adee1c84988}{mat\+Ref\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$A)
+\begin{DoxyCompactList}\small\item\em mat\+Norm\+CF take the first matrix A value as a reference (ie\+: 1) and scale the other value accoarding to that \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_aa44e9f047fc84250a45cbf3a3764f82a}{scale\+Line\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, unsigned int i, \hyperlink{structComplex__f}{Complex\+\_\+f} f)
+\begin{DoxyCompactList}\small\item\em scale\+Line\+CF multiply a line with a \end{DoxyCompactList}\item 
+int \hyperlink{matrixcf_8c_aeb31172c90e1dcb05d800c882edc56b3}{sub\+X\+Lines\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a, unsigned int i, unsigned int i2, \hyperlink{structComplex__f}{Complex\+\_\+f} f)
+\begin{DoxyCompactList}\small\item\em sub\+X\+Lines\+CF computes line i -\/ f$\ast$line i2 and store it into line i \end{DoxyCompactList}\item 
+void \hyperlink{matrixcf_8c_a5cef9887dfd2d47c071cd3f31c675a02}{mul\+Add\+Scale\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$result, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$mul1, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$mul2, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$add, \hyperlink{structComplex__f}{Complex\+\_\+f} l, \hyperlink{structComplex__f}{Complex\+\_\+f} s)
+\begin{DoxyCompactList}\small\item\em compute result = s$\ast$(mul1$\ast$mul2 + l$\ast$add) \end{DoxyCompactList}\item 
+int \hyperlink{matrixcf_8c_abeca90708a85d20182cbb2d13246a00e}{is\+Diag\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the matrix is diagonal and sets its flag if necessary \end{DoxyCompactList}\item 
+int \hyperlink{matrixcf_8c_a732a17ecf7aafb58a1ab69ff615ab29e}{is\+Tri\+U\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the matrix is triangular UP and sets its flag if necessary \end{DoxyCompactList}\item 
+int \hyperlink{matrixcf_8c_a6f46250582fce6ed2ab46e1b039f8efe}{is\+Tri\+L\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the matrix is triangular Low and sets its flag if necessary \end{DoxyCompactList}\item 
+int \hyperlink{matrixcf_8c_a41cf0fc850e431af2f492fa8682cfc5c}{is\+Sparse\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the sparcity of the matrix is superior to 2/3 (allows compression) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+to handle matrix operations for complex float \begin{DoxyAuthor}{Author}
+Nicolas Sourbier 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/09/2018 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{matrixcf.\+c@{matrixcf.\+c}!add\+Matrix\+CF@{add\+Matrix\+CF}}
+\index{add\+Matrix\+CF@{add\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{add\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$a, Matrix\+\_\+cf $\ast$b)}{addMatrixCF(Matrix_cf *a, Matrix_cf *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a23d12aacfcc8c0c22953955b9de082a3}{}\label{matrixcf_8c_a23d12aacfcc8c0c22953955b9de082a3}
+
+
+add\+Matrix\+CF compute A = A+B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!add\+Matrix\+T\+CF@{add\+Matrix\+T\+CF}}
+\index{add\+Matrix\+T\+CF@{add\+Matrix\+T\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{add\+Matrix\+T\+C\+F(\+Matrix\+\_\+cf $\ast$a, Matrix\+\_\+cf $\ast$b)}{addMatrixTCF(Matrix_cf *a, Matrix_cf *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+Matrix\+T\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_acb2f4bca1c5a589a83dd21b0847de0f7}{}\label{matrixcf_8c_acb2f4bca1c5a589a83dd21b0847de0f7}
+
+
+add\+Matrix\+T\+CF compute A = A+\+BT BT being the transposed matrix of B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!create\+Identity\+CF@{create\+Identity\+CF}}
+\index{create\+Identity\+CF@{create\+Identity\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{create\+Identity\+C\+F(\+Matrix\+\_\+cf $\ast$\+I)}{createIdentityCF(Matrix_cf *I)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Identity\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_ac0c72559d97199f25cda818c603005d4}{}\label{matrixcf_8c_ac0c72559d97199f25cda818c603005d4}
+
+
+create\+Identity\+CF compute the identoty matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & A pointer to store the result \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!create\+Random\+Matrix\+CF@{create\+Random\+Matrix\+CF}}
+\index{create\+Random\+Matrix\+CF@{create\+Random\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{create\+Random\+Matrix\+C\+F(unsigned int rows, unsigned int column)}{createRandomMatrixCF(unsigned int rows, unsigned int column)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+cf}$\ast$ create\+Random\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{rows, }
+\item[{unsigned int}]{column}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a8db1179a10a7f134d7c63397a6c031b1}{}\label{matrixcf_8c_a8db1179a10a7f134d7c63397a6c031b1}
+
+
+create\+Random\+Matrix initialize a random Matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & number of rows \\
+\hline
+{\em column} & number of columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random matrix 
+\end{DoxyReturn}
+\index{matrixcf.\+c@{matrixcf.\+c}!create\+Test\+Vector\+CF@{create\+Test\+Vector\+CF}}
+\index{create\+Test\+Vector\+CF@{create\+Test\+Vector\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{create\+Test\+Vector\+C\+F(unsigned int type)}{createTestVectorCF(unsigned int type)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+cf}$\ast$ create\+Test\+Vector\+CF (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a8856240cb751ea0059fd0a493f40e358}{}\label{matrixcf_8c_a8856240cb751ea0059fd0a493f40e358}
+
+
+create\+Test\+Vector initialize a known vector of size 3\+:1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & (1 or 2) you can choose between two matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random matrix 
+\end{DoxyReturn}
+\index{matrixcf.\+c@{matrixcf.\+c}!create\+Zero\+Matrix\+CF@{create\+Zero\+Matrix\+CF}}
+\index{create\+Zero\+Matrix\+CF@{create\+Zero\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{create\+Zero\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$\+J)}{createZeroMatrixCF(Matrix_cf *J)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Zero\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{J}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a3d6e512a8597edac8d6d060da8dce93b}{}\label{matrixcf_8c_a3d6e512a8597edac8d6d060da8dce93b}
+
+
+create\+Random\+Matrix initialize a random Matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em J} & a matrix to fill with zeros \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random matrix 
+\end{DoxyReturn}
+\index{matrixcf.\+c@{matrixcf.\+c}!free\+Matrix\+CF@{free\+Matrix\+CF}}
+\index{free\+Matrix\+CF@{free\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{free\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$\+A)}{freeMatrixCF(Matrix_cf *A)}}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a3dc1b7b64de877b4c5ed94e77faef6b5}{}\label{matrixcf_8c_a3dc1b7b64de877b4c5ed94e77faef6b5}
+
+
+free\+Matrix\+CF free a \hyperlink{structComplex__f}{Complex\+\_\+f} matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix to free \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!is\+Diag\+CF@{is\+Diag\+CF}}
+\index{is\+Diag\+CF@{is\+Diag\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{is\+Diag\+C\+F(\+Matrix\+\_\+cf $\ast$a)}{isDiagCF(Matrix_cf *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Diag\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_abeca90708a85d20182cbb2d13246a00e}{}\label{matrixcf_8c_abeca90708a85d20182cbb2d13246a00e}
+
+
+checks if the matrix is diagonal and sets its flag if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!is\+Sparse\+CF@{is\+Sparse\+CF}}
+\index{is\+Sparse\+CF@{is\+Sparse\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{is\+Sparse\+C\+F(\+Matrix\+\_\+cf $\ast$a)}{isSparseCF(Matrix_cf *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Sparse\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a41cf0fc850e431af2f492fa8682cfc5c}{}\label{matrixcf_8c_a41cf0fc850e431af2f492fa8682cfc5c}
+
+
+checks if the sparcity of the matrix is superior to 2/3 (allows compression) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!is\+Tri\+L\+CF@{is\+Tri\+L\+CF}}
+\index{is\+Tri\+L\+CF@{is\+Tri\+L\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{is\+Tri\+L\+C\+F(\+Matrix\+\_\+cf $\ast$a)}{isTriLCF(Matrix_cf *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Tri\+L\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a6f46250582fce6ed2ab46e1b039f8efe}{}\label{matrixcf_8c_a6f46250582fce6ed2ab46e1b039f8efe}
+
+
+checks if the matrix is triangular Low and sets its flag if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!is\+Tri\+U\+CF@{is\+Tri\+U\+CF}}
+\index{is\+Tri\+U\+CF@{is\+Tri\+U\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{is\+Tri\+U\+C\+F(\+Matrix\+\_\+cf $\ast$a)}{isTriUCF(Matrix_cf *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Tri\+U\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a732a17ecf7aafb58a1ab69ff615ab29e}{}\label{matrixcf_8c_a732a17ecf7aafb58a1ab69ff615ab29e}
+
+
+checks if the matrix is triangular UP and sets its flag if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!mat\+Ref\+CF@{mat\+Ref\+CF}}
+\index{mat\+Ref\+CF@{mat\+Ref\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{mat\+Ref\+C\+F(\+Matrix\+\_\+cf $\ast$\+A)}{matRefCF(Matrix_cf *A)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat\+Ref\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_ad81900663e5a729a4d887adee1c84988}{}\label{matrixcf_8c_ad81900663e5a729a4d887adee1c84988}
+
+
+mat\+Norm\+CF take the first matrix A value as a reference (ie\+: 1) and scale the other value accoarding to that 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix that we want to \char`\"{}norm\char`\"{} \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!matrix\+Alloc\+CF@{matrix\+Alloc\+CF}}
+\index{matrix\+Alloc\+CF@{matrix\+Alloc\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{matrix\+Alloc\+C\+F(unsigned int rows, unsigned int column)}{matrixAllocCF(unsigned int rows, unsigned int column)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+cf}$\ast$ matrix\+Alloc\+CF (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{rows, }
+\item[{unsigned int}]{column}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a39e7a96197ea705a3691639ce475f5a5}{}\label{matrixcf_8c_a39e7a96197ea705a3691639ce475f5a5}
+
+
+matrix\+Alloc\+CF allocate memory for a matrix and initialize it to zero 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & number of rows \\
+\hline
+{\em column} & number of columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the allocated matrix if no errors occured, N\+U\+LL if not 
+\end{DoxyReturn}
+\index{matrixcf.\+c@{matrixcf.\+c}!matrix\+Get\+CF@{matrix\+Get\+CF}}
+\index{matrix\+Get\+CF@{matrix\+Get\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{matrix\+Get\+C\+F(\+Matrix\+\_\+cf $\ast$\+A, unsigned int i, unsigned int j)}{matrixGetCF(Matrix_cf *A, unsigned int i, unsigned int j)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} matrix\+Get\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{A, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_ae9ce7ec96f11928ce01ac46edaacf09b}{}\label{matrixcf_8c_ae9ce7ec96f11928ce01ac46edaacf09b}
+
+
+matrix\+Get\+CF access a specified data of a matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix \\
+\hline
+{\em i} & the index of rows \\
+\hline
+{\em j} & the index on columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the data A(i,j) 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+if the matrix in parameter is N\+U\+LL, returns 0 
+\end{DoxyWarning}
+\index{matrixcf.\+c@{matrixcf.\+c}!matrix\+Set\+CF@{matrix\+Set\+CF}}
+\index{matrix\+Set\+CF@{matrix\+Set\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{matrix\+Set\+C\+F(\+Matrix\+\_\+cf $\ast$\+A, unsigned int i, unsigned int j, const Complex\+\_\+f c)}{matrixSetCF(Matrix_cf *A, unsigned int i, unsigned int j, const Complex_f c)}}]{\setlength{\rightskip}{0pt plus 5cm}void matrix\+Set\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{A, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{j, }
+\item[{const {\bf Complex\+\_\+f}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_abb32dd6231976a0dbda098df6dd3386f}{}\label{matrixcf_8c_abb32dd6231976a0dbda098df6dd3386f}
+
+
+matrix\+Set\+CF set the value of a specified data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix \\
+\hline
+{\em i} & the index on rows \\
+\hline
+{\em j} & the index on columns \\
+\hline
+{\em c} & the to set at A(i,j) \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!mul\+Add\+Scale\+Matrix\+CF@{mul\+Add\+Scale\+Matrix\+CF}}
+\index{mul\+Add\+Scale\+Matrix\+CF@{mul\+Add\+Scale\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{mul\+Add\+Scale\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$result, Matrix\+\_\+cf $\ast$mul1, Matrix\+\_\+cf $\ast$mul2, Matrix\+\_\+cf $\ast$add, Complex\+\_\+f l, Complex\+\_\+f s)}{mulAddScaleMatrixCF(Matrix_cf *result, Matrix_cf *mul1, Matrix_cf *mul2, Matrix_cf *add, Complex_f l, Complex_f s)}}]{\setlength{\rightskip}{0pt plus 5cm}void mul\+Add\+Scale\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{result, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{mul1, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{mul2, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{add, }
+\item[{{\bf Complex\+\_\+f}}]{l, }
+\item[{{\bf Complex\+\_\+f}}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a5cef9887dfd2d47c071cd3f31c675a02}{}\label{matrixcf_8c_a5cef9887dfd2d47c071cd3f31c675a02}
+
+
+compute result = s$\ast$(mul1$\ast$mul2 + l$\ast$add) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & a matrix to store the result \\
+\hline
+{\em mul1} & \& \\
+\hline
+{\em mul2} & matrices to multiply \\
+\hline
+{\em add} & a matrix to add to the previous product \\
+\hline
+{\em l} & a \hyperlink{structComplex__f}{Complex\+\_\+f} to scale the add matrix \\
+\hline
+{\em s} & a \hyperlink{structComplex__f}{Complex\+\_\+f} to scale the result doesn\textquotesingle{}t use optimisations related to the matrix properties \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!mul\+Matrix\+CF@{mul\+Matrix\+CF}}
+\index{mul\+Matrix\+CF@{mul\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{mul\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$a, Matrix\+\_\+cf $\ast$b, Matrix\+\_\+cf $\ast$c)}{mulMatrixCF(Matrix_cf *a, Matrix_cf *b, Matrix_cf *c)}}]{\setlength{\rightskip}{0pt plus 5cm}void mul\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{b, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a9c7a762d9828fdf2b62075ed047f448b}{}\label{matrixcf_8c_a9c7a762d9828fdf2b62075ed047f448b}
+
+
+compute C = A$\ast$B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+{\em c} & a matrix to store the result \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!print\+Matrix\+CF@{print\+Matrix\+CF}}
+\index{print\+Matrix\+CF@{print\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{print\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$a)}{printMatrixCF(Matrix_cf *a)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a442e1077e0c8060c0fdb9f86de1534a9}{}\label{matrixcf_8c_a442e1077e0c8060c0fdb9f86de1534a9}
+
+
+print\+Matrix\+CF display a matrix of \hyperlink{structComplex__f}{Complex\+\_\+f} (usefull for testing) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to display \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!scale\+Line\+CF@{scale\+Line\+CF}}
+\index{scale\+Line\+CF@{scale\+Line\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{scale\+Line\+C\+F(\+Matrix\+\_\+cf $\ast$a, unsigned int i, Complex\+\_\+f f)}{scaleLineCF(Matrix_cf *a, unsigned int i, Complex_f f)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+Line\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{unsigned int}]{i, }
+\item[{{\bf Complex\+\_\+f}}]{f}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_aa44e9f047fc84250a45cbf3a3764f82a}{}\label{matrixcf_8c_aa44e9f047fc84250a45cbf3a3764f82a}
+
+
+scale\+Line\+CF multiply a line with a 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix \\
+\hline
+{\em i} & the index of the line we want to scale \\
+\hline
+{\em f} & the that will scale the line \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!scale\+Matrix\+CF@{scale\+Matrix\+CF}}
+\index{scale\+Matrix\+CF@{scale\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{scale\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$a, const Complex\+\_\+f c)}{scaleMatrixCF(Matrix_cf *a, const Complex_f c)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{const {\bf Complex\+\_\+f}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a4ed28ec9b93a048f236a5440dd126dad}{}\label{matrixcf_8c_a4ed28ec9b93a048f236a5440dd126dad}
+
+
+scale\+Matrix\+CF multiply each data by a constant () 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to scale \\
+\hline
+{\em c} & the \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!sub\+Matrix\+CF@{sub\+Matrix\+CF}}
+\index{sub\+Matrix\+CF@{sub\+Matrix\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{sub\+Matrix\+C\+F(\+Matrix\+\_\+cf $\ast$a, Matrix\+\_\+cf $\ast$b)}{subMatrixCF(Matrix_cf *a, Matrix_cf *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void sub\+Matrix\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a94030ea97022060031fe3bd7b19fb507}{}\label{matrixcf_8c_a94030ea97022060031fe3bd7b19fb507}
+
+
+sub\+Matrix\+CF compute A = A-\/B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+\end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!sub\+X\+Lines\+CF@{sub\+X\+Lines\+CF}}
+\index{sub\+X\+Lines\+CF@{sub\+X\+Lines\+CF}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{sub\+X\+Lines\+C\+F(\+Matrix\+\_\+cf $\ast$a, unsigned int i, unsigned int i2, Complex\+\_\+f f)}{subXLinesCF(Matrix_cf *a, unsigned int i, unsigned int i2, Complex_f f)}}]{\setlength{\rightskip}{0pt plus 5cm}int sub\+X\+Lines\+CF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{a, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{i2, }
+\item[{{\bf Complex\+\_\+f}}]{f}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_aeb31172c90e1dcb05d800c882edc56b3}{}\label{matrixcf_8c_aeb31172c90e1dcb05d800c882edc56b3}
+
+
+sub\+X\+Lines\+CF computes line i -\/ f$\ast$line i2 and store it into line i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix \\
+\hline
+{\em i} & the index of the line to update \\
+\hline
+{\em i2} & the index of the \char`\"{}reference\char`\"{} line \\
+\hline
+{\em f} & a to scale the matrix \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,519 @@
+\hypertarget{matrixd_8c}{}\section{matrixd.\+c File Reference}
+\label{matrixd_8c}\index{matrixd.\+c@{matrixd.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}matrixd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$omp.\+h$>$}\\*
+Include dependency graph for matrixd.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matrixd_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{matrixd_8c_aeebf82147e41165a72a1faf5b6f58cbe}{print\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a)
+\begin{DoxyCompactList}\small\item\em print\+MatrixD display a matrix of doubles (usefull for testing) \end{DoxyCompactList}\item 
+\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$ \hyperlink{matrixd_8c_a6ff76857b26a8b0fc0eca59bfa849e9a}{matrix\+AllocD} (unsigned int rows, unsigned int column)
+\begin{DoxyCompactList}\small\item\em matrix\+AllocD allocate memory for a matrix and initialize it to zero \end{DoxyCompactList}\item 
+\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$ \hyperlink{matrixd_8c_ae287aca00d0e858d465407e27505fc86}{create\+Random\+MatrixD} (unsigned int rows, unsigned int column)
+\begin{DoxyCompactList}\small\item\em create\+Random\+Matrix initialize a random Matrix \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_ac2640483bc926409d0700755b0af5045}{create\+Zero\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$J)
+\begin{DoxyCompactList}\small\item\em create\+Random\+Matrix initialize a random Matrix \end{DoxyCompactList}\item 
+\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$ \hyperlink{matrixd_8c_adce723f460015224445701f0e393826c}{create\+Test\+VectorD} (unsigned int type)
+\begin{DoxyCompactList}\small\item\em create\+Test\+Vector initialize a known vector of size 3\+:1 \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_a35dbcfdd7d0125570b4ef3857b351cf2}{create\+IdentityD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$I)
+\begin{DoxyCompactList}\small\item\em create\+IdentityD compute the identoty matrix \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_aefcf2f0617929d1f004820a0b2ce55fd}{free\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$A)
+\begin{DoxyCompactList}\small\item\em free\+MatrixD free a double matrix \end{DoxyCompactList}\item 
+double \hyperlink{matrixd_8c_ac3d08df97e27595ae172dbfaa469da95}{matrix\+GetD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$A, unsigned int i, unsigned int j)
+\begin{DoxyCompactList}\small\item\em matrix\+GetD access a specified data of a matrix \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_a76a5ff922a8c88a4f714c541536174ae}{matrix\+SetD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$A, unsigned int i, unsigned int j, const double c)
+\begin{DoxyCompactList}\small\item\em matrix\+SetD set the value of a specified data \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_a26a3bae7e0207e93519cacc7f28b9f28}{scale\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, const double c)
+\begin{DoxyCompactList}\small\item\em scale\+MatrixD multiply each data by a constant () \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_ac7de4dcf4c04dd88e30fde5bb6b5fe6f}{add\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$b)
+\begin{DoxyCompactList}\small\item\em add\+MatrixD compute A = A+B \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_a1b8b1198071dba9e22d084a422bc1dff}{add\+Matrix\+TD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$b)
+\begin{DoxyCompactList}\small\item\em add\+Matrix\+TD compute A = A+\+BT BT being the transposed matrix of B \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_a81d4470f1cac6438cb8b2b0efc9bb2b9}{sub\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$b)
+\begin{DoxyCompactList}\small\item\em sub\+MatrixD compute A = A-\/B \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_a69ab2ff6c56dfcda9f40cf34a1703395}{mul\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$b, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$c)
+\begin{DoxyCompactList}\small\item\em compute C = A$\ast$B \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_af044608679902bc2f10ec41c73d1b9ba}{mat\+RefD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$A)
+\begin{DoxyCompactList}\small\item\em mat\+NormD take the first matrix A value as a reference (ie\+: 1) and scale the other value accoarding to that \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_ac006431b140f4aa41241b200b1ae2160}{scale\+LineD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, unsigned int i, double f)
+\begin{DoxyCompactList}\small\item\em scale\+LineD multiply a line with a \end{DoxyCompactList}\item 
+int \hyperlink{matrixd_8c_a7d2311a6678cfd6283c9fdbdb14e0c82}{sub\+X\+LinesD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a, unsigned int i, unsigned int i2, double f)
+\begin{DoxyCompactList}\small\item\em sub\+X\+LinesD computes line i -\/ f$\ast$line i2 and store it into line i \end{DoxyCompactList}\item 
+void \hyperlink{matrixd_8c_ad7aa0adf79e3a8db63d5bf42fcfb46d9}{mul\+Add\+Scale\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$result, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$mul1, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$mul2, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$add, double l, double s)
+\begin{DoxyCompactList}\small\item\em compute result = s$\ast$(mul1$\ast$mul2 + l$\ast$add) \end{DoxyCompactList}\item 
+int \hyperlink{matrixd_8c_ad40ecc4702d0b8006c74e5dc9d276bfa}{is\+DiagD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the matrix is diagonal and sets its flag if necessary \end{DoxyCompactList}\item 
+int \hyperlink{matrixd_8c_a395a85ba238f77a9d99379d7ccb17319}{is\+Tri\+UD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the matrix is triangular UP and sets its flag if necessary \end{DoxyCompactList}\item 
+int \hyperlink{matrixd_8c_ad2b735851078c82820cbfb6a8bdf50d7}{is\+Tri\+LD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the matrix is triangular Low and sets its flag if necessary \end{DoxyCompactList}\item 
+int \hyperlink{matrixd_8c_a8f670f030620d51be8576e58eb7c9938}{is\+SparseD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a)
+\begin{DoxyCompactList}\small\item\em checks if the sparcity of the matrix is superior to 2/3 (allows compression) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+to handle matrix operations for doubles \begin{DoxyAuthor}{Author}
+Nicolas Sourbier 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/09/2018
+\end{DoxyDate}
+to handle matrix operations for floats \begin{DoxyAuthor}{Author}
+Nicolas Sourbier 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/09/2018 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{matrixd.\+c@{matrixd.\+c}!add\+MatrixD@{add\+MatrixD}}
+\index{add\+MatrixD@{add\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{add\+Matrix\+D(\+Matrix\+\_\+d $\ast$a, Matrix\+\_\+d $\ast$b)}{addMatrixD(Matrix_d *a, Matrix_d *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ac7de4dcf4c04dd88e30fde5bb6b5fe6f}{}\label{matrixd_8c_ac7de4dcf4c04dd88e30fde5bb6b5fe6f}
+
+
+add\+MatrixD compute A = A+B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!add\+Matrix\+TD@{add\+Matrix\+TD}}
+\index{add\+Matrix\+TD@{add\+Matrix\+TD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{add\+Matrix\+T\+D(\+Matrix\+\_\+d $\ast$a, Matrix\+\_\+d $\ast$b)}{addMatrixTD(Matrix_d *a, Matrix_d *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+Matrix\+TD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a1b8b1198071dba9e22d084a422bc1dff}{}\label{matrixd_8c_a1b8b1198071dba9e22d084a422bc1dff}
+
+
+add\+Matrix\+TD compute A = A+\+BT BT being the transposed matrix of B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!create\+IdentityD@{create\+IdentityD}}
+\index{create\+IdentityD@{create\+IdentityD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{create\+Identity\+D(\+Matrix\+\_\+d $\ast$\+I)}{createIdentityD(Matrix_d *I)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+IdentityD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a35dbcfdd7d0125570b4ef3857b351cf2}{}\label{matrixd_8c_a35dbcfdd7d0125570b4ef3857b351cf2}
+
+
+create\+IdentityD compute the identoty matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & A pointer to store the result \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!create\+Random\+MatrixD@{create\+Random\+MatrixD}}
+\index{create\+Random\+MatrixD@{create\+Random\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{create\+Random\+Matrix\+D(unsigned int rows, unsigned int column)}{createRandomMatrixD(unsigned int rows, unsigned int column)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+d}$\ast$ create\+Random\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{rows, }
+\item[{unsigned int}]{column}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ae287aca00d0e858d465407e27505fc86}{}\label{matrixd_8c_ae287aca00d0e858d465407e27505fc86}
+
+
+create\+Random\+Matrix initialize a random Matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & number of rows \\
+\hline
+{\em column} & number of columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random matrix 
+\end{DoxyReturn}
+\index{matrixd.\+c@{matrixd.\+c}!create\+Test\+VectorD@{create\+Test\+VectorD}}
+\index{create\+Test\+VectorD@{create\+Test\+VectorD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{create\+Test\+Vector\+D(unsigned int type)}{createTestVectorD(unsigned int type)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+d}$\ast$ create\+Test\+VectorD (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_adce723f460015224445701f0e393826c}{}\label{matrixd_8c_adce723f460015224445701f0e393826c}
+
+
+create\+Test\+Vector initialize a known vector of size 3\+:1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & (1 or 2) you can choose between two matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random matrix 
+\end{DoxyReturn}
+\index{matrixd.\+c@{matrixd.\+c}!create\+Zero\+MatrixD@{create\+Zero\+MatrixD}}
+\index{create\+Zero\+MatrixD@{create\+Zero\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{create\+Zero\+Matrix\+D(\+Matrix\+\_\+d $\ast$\+J)}{createZeroMatrixD(Matrix_d *J)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Zero\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{J}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ac2640483bc926409d0700755b0af5045}{}\label{matrixd_8c_ac2640483bc926409d0700755b0af5045}
+
+
+create\+Random\+Matrix initialize a random Matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em J} & a matrix to fill with zeros \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random matrix 
+\end{DoxyReturn}
+\index{matrixd.\+c@{matrixd.\+c}!free\+MatrixD@{free\+MatrixD}}
+\index{free\+MatrixD@{free\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{free\+Matrix\+D(\+Matrix\+\_\+d $\ast$\+A)}{freeMatrixD(Matrix_d *A)}}]{\setlength{\rightskip}{0pt plus 5cm}void free\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_aefcf2f0617929d1f004820a0b2ce55fd}{}\label{matrixd_8c_aefcf2f0617929d1f004820a0b2ce55fd}
+
+
+free\+MatrixD free a double matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix to free \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!is\+DiagD@{is\+DiagD}}
+\index{is\+DiagD@{is\+DiagD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{is\+Diag\+D(\+Matrix\+\_\+d $\ast$a)}{isDiagD(Matrix_d *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+DiagD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ad40ecc4702d0b8006c74e5dc9d276bfa}{}\label{matrixd_8c_ad40ecc4702d0b8006c74e5dc9d276bfa}
+
+
+checks if the matrix is diagonal and sets its flag if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!is\+SparseD@{is\+SparseD}}
+\index{is\+SparseD@{is\+SparseD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{is\+Sparse\+D(\+Matrix\+\_\+d $\ast$a)}{isSparseD(Matrix_d *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+SparseD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a8f670f030620d51be8576e58eb7c9938}{}\label{matrixd_8c_a8f670f030620d51be8576e58eb7c9938}
+
+
+checks if the sparcity of the matrix is superior to 2/3 (allows compression) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!is\+Tri\+LD@{is\+Tri\+LD}}
+\index{is\+Tri\+LD@{is\+Tri\+LD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{is\+Tri\+L\+D(\+Matrix\+\_\+d $\ast$a)}{isTriLD(Matrix_d *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Tri\+LD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ad2b735851078c82820cbfb6a8bdf50d7}{}\label{matrixd_8c_ad2b735851078c82820cbfb6a8bdf50d7}
+
+
+checks if the matrix is triangular Low and sets its flag if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!is\+Tri\+UD@{is\+Tri\+UD}}
+\index{is\+Tri\+UD@{is\+Tri\+UD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{is\+Tri\+U\+D(\+Matrix\+\_\+d $\ast$a)}{isTriUD(Matrix_d *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Tri\+UD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a395a85ba238f77a9d99379d7ccb17319}{}\label{matrixd_8c_a395a85ba238f77a9d99379d7ccb17319}
+
+
+checks if the matrix is triangular UP and sets its flag if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to test returns 1 if diag, 0 otherwise \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!mat\+RefD@{mat\+RefD}}
+\index{mat\+RefD@{mat\+RefD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{mat\+Ref\+D(\+Matrix\+\_\+d $\ast$\+A)}{matRefD(Matrix_d *A)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat\+RefD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_af044608679902bc2f10ec41c73d1b9ba}{}\label{matrixd_8c_af044608679902bc2f10ec41c73d1b9ba}
+
+
+mat\+NormD take the first matrix A value as a reference (ie\+: 1) and scale the other value accoarding to that 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix that we want to \char`\"{}norm\char`\"{} \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!matrix\+AllocD@{matrix\+AllocD}}
+\index{matrix\+AllocD@{matrix\+AllocD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{matrix\+Alloc\+D(unsigned int rows, unsigned int column)}{matrixAllocD(unsigned int rows, unsigned int column)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+d}$\ast$ matrix\+AllocD (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{rows, }
+\item[{unsigned int}]{column}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a6ff76857b26a8b0fc0eca59bfa849e9a}{}\label{matrixd_8c_a6ff76857b26a8b0fc0eca59bfa849e9a}
+
+
+matrix\+AllocD allocate memory for a matrix and initialize it to zero 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & number of rows \\
+\hline
+{\em column} & number of columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the allocated matrix if no errors occured, N\+U\+LL if not 
+\end{DoxyReturn}
+\index{matrixd.\+c@{matrixd.\+c}!matrix\+GetD@{matrix\+GetD}}
+\index{matrix\+GetD@{matrix\+GetD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{matrix\+Get\+D(\+Matrix\+\_\+d $\ast$\+A, unsigned int i, unsigned int j)}{matrixGetD(Matrix_d *A, unsigned int i, unsigned int j)}}]{\setlength{\rightskip}{0pt plus 5cm}double matrix\+GetD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{A, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ac3d08df97e27595ae172dbfaa469da95}{}\label{matrixd_8c_ac3d08df97e27595ae172dbfaa469da95}
+
+
+matrix\+GetD access a specified data of a matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix \\
+\hline
+{\em i} & the index of rows \\
+\hline
+{\em j} & the index on columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the data A(i,j) 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+if the matrix in parameter is N\+U\+LL, returns 0 
+\end{DoxyWarning}
+\index{matrixd.\+c@{matrixd.\+c}!matrix\+SetD@{matrix\+SetD}}
+\index{matrix\+SetD@{matrix\+SetD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{matrix\+Set\+D(\+Matrix\+\_\+d $\ast$\+A, unsigned int i, unsigned int j, const double c)}{matrixSetD(Matrix_d *A, unsigned int i, unsigned int j, const double c)}}]{\setlength{\rightskip}{0pt plus 5cm}void matrix\+SetD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{A, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{j, }
+\item[{const double}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a76a5ff922a8c88a4f714c541536174ae}{}\label{matrixd_8c_a76a5ff922a8c88a4f714c541536174ae}
+
+
+matrix\+SetD set the value of a specified data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix \\
+\hline
+{\em i} & the index on rows \\
+\hline
+{\em j} & the index on columns \\
+\hline
+{\em c} & the to set at A(i,j) \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!mul\+Add\+Scale\+MatrixD@{mul\+Add\+Scale\+MatrixD}}
+\index{mul\+Add\+Scale\+MatrixD@{mul\+Add\+Scale\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{mul\+Add\+Scale\+Matrix\+D(\+Matrix\+\_\+d $\ast$result, Matrix\+\_\+d $\ast$mul1, Matrix\+\_\+d $\ast$mul2, Matrix\+\_\+d $\ast$add, double l, double s)}{mulAddScaleMatrixD(Matrix_d *result, Matrix_d *mul1, Matrix_d *mul2, Matrix_d *add, double l, double s)}}]{\setlength{\rightskip}{0pt plus 5cm}void mul\+Add\+Scale\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{result, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{mul1, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{mul2, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{add, }
+\item[{double}]{l, }
+\item[{double}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ad7aa0adf79e3a8db63d5bf42fcfb46d9}{}\label{matrixd_8c_ad7aa0adf79e3a8db63d5bf42fcfb46d9}
+
+
+compute result = s$\ast$(mul1$\ast$mul2 + l$\ast$add) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & a matrix to store the result \\
+\hline
+{\em mul1} & \& \\
+\hline
+{\em mul2} & matrices to multiply \\
+\hline
+{\em add} & a matrix to add to the previous product \\
+\hline
+{\em l} & a double to scale the add matrix \\
+\hline
+{\em s} & a double to scale the result doesn\textquotesingle{}t use optimisations related to the matrix properties \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!mul\+MatrixD@{mul\+MatrixD}}
+\index{mul\+MatrixD@{mul\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{mul\+Matrix\+D(\+Matrix\+\_\+d $\ast$a, Matrix\+\_\+d $\ast$b, Matrix\+\_\+d $\ast$c)}{mulMatrixD(Matrix_d *a, Matrix_d *b, Matrix_d *c)}}]{\setlength{\rightskip}{0pt plus 5cm}void mul\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{b, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a69ab2ff6c56dfcda9f40cf34a1703395}{}\label{matrixd_8c_a69ab2ff6c56dfcda9f40cf34a1703395}
+
+
+compute C = A$\ast$B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+{\em c} & a matrix to store the result \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!print\+MatrixD@{print\+MatrixD}}
+\index{print\+MatrixD@{print\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{print\+Matrix\+D(\+Matrix\+\_\+d $\ast$a)}{printMatrixD(Matrix_d *a)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_aeebf82147e41165a72a1faf5b6f58cbe}{}\label{matrixd_8c_aeebf82147e41165a72a1faf5b6f58cbe}
+
+
+print\+MatrixD display a matrix of doubles (usefull for testing) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to display \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!scale\+LineD@{scale\+LineD}}
+\index{scale\+LineD@{scale\+LineD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{scale\+Line\+D(\+Matrix\+\_\+d $\ast$a, unsigned int i, double f)}{scaleLineD(Matrix_d *a, unsigned int i, double f)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+LineD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{unsigned int}]{i, }
+\item[{double}]{f}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ac006431b140f4aa41241b200b1ae2160}{}\label{matrixd_8c_ac006431b140f4aa41241b200b1ae2160}
+
+
+scale\+LineD multiply a line with a 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix \\
+\hline
+{\em i} & the index of the line we want to scale \\
+\hline
+{\em f} & the that will scale the line \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!scale\+MatrixD@{scale\+MatrixD}}
+\index{scale\+MatrixD@{scale\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{scale\+Matrix\+D(\+Matrix\+\_\+d $\ast$a, const double c)}{scaleMatrixD(Matrix_d *a, const double c)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{const double}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a26a3bae7e0207e93519cacc7f28b9f28}{}\label{matrixd_8c_a26a3bae7e0207e93519cacc7f28b9f28}
+
+
+scale\+MatrixD multiply each data by a constant () 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix to scale \\
+\hline
+{\em c} & the \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!sub\+MatrixD@{sub\+MatrixD}}
+\index{sub\+MatrixD@{sub\+MatrixD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{sub\+Matrix\+D(\+Matrix\+\_\+d $\ast$a, Matrix\+\_\+d $\ast$b)}{subMatrixD(Matrix_d *a, Matrix_d *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void sub\+MatrixD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a81d4470f1cac6438cb8b2b0efc9bb2b9}{}\label{matrixd_8c_a81d4470f1cac6438cb8b2b0efc9bb2b9}
+
+
+sub\+MatrixD compute A = A-\/B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & matrix \\
+\hline
+{\em b} & matrix \\
+\hline
+\end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!sub\+X\+LinesD@{sub\+X\+LinesD}}
+\index{sub\+X\+LinesD@{sub\+X\+LinesD}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{sub\+X\+Lines\+D(\+Matrix\+\_\+d $\ast$a, unsigned int i, unsigned int i2, double f)}{subXLinesD(Matrix_d *a, unsigned int i, unsigned int i2, double f)}}]{\setlength{\rightskip}{0pt plus 5cm}int sub\+X\+LinesD (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{a, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{i2, }
+\item[{double}]{f}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a7d2311a6678cfd6283c9fdbdb14e0c82}{}\label{matrixd_8c_a7d2311a6678cfd6283c9fdbdb14e0c82}
+
+
+sub\+X\+LinesD computes line i -\/ f$\ast$line i2 and store it into line i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the matrix \\
+\hline
+{\em i} & the index of the line to update \\
+\hline
+{\em i2} & the index of the \char`\"{}reference\char`\"{} line \\
+\hline
+{\em f} & a to scale the matrix \\
+\hline
+\end{DoxyParams}

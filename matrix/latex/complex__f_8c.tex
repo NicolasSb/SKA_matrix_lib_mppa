@@ -1,0 +1,322 @@
+\hypertarget{complex__f_8c}{}\section{complex\+\_\+f.\+c File Reference}
+\label{complex__f_8c}\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}complex\+\_\+f.\+h\char`\"{}}\\*
+Include dependency graph for complex\+\_\+f.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{complex__f_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{complex__f_8c_ae8d5115ead472e2bcbe978f146766274}{equals\+\_\+f} (float a, float b, float precis)
+\begin{DoxyCompactList}\small\item\em test the equality of two floats relatively to a precision \end{DoxyCompactList}\item 
+int \hyperlink{complex__f_8c_aa956ba70c67f43af6f2fb11a8f9d8248}{is\+Null\+\_\+f} (\hyperlink{structComplex__f}{Complex\+\_\+f} a)
+\begin{DoxyCompactList}\small\item\em test if a complex is N\+U\+LL relatively to a precision \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a3301aa4f26a5a781576428a8de2552b6}{conjugateF} (\hyperlink{structComplex__f}{Complex\+\_\+f} c)
+\begin{DoxyCompactList}\small\item\em conjugateF computes the conjugate of a complex \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_ac4432be4524cb2d9a4272703ee26a285}{addF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a, \hyperlink{structComplex__f}{Complex\+\_\+f} b)
+\begin{DoxyCompactList}\small\item\em addF add two complexes \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_af097998e4898e6407ce54ed0da7280fb}{subF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a, \hyperlink{structComplex__f}{Complex\+\_\+f} b)
+\begin{DoxyCompactList}\small\item\em subF substract two complexes (a-\/b) \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_af7c74a571a7d93993389961b39ab125b}{scaleF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a, float c)
+\begin{DoxyCompactList}\small\item\em scaleF multiply a complex by a constant \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_ac068ed59ed029d889bc5328383c4ef83}{multiplyF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a, \hyperlink{structComplex__f}{Complex\+\_\+f} b)
+\begin{DoxyCompactList}\small\item\em multiplyF multiply two complexes \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a9ff571018104b2884b663170e2150529}{divF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a, \hyperlink{structComplex__f}{Complex\+\_\+f} b)
+\begin{DoxyCompactList}\small\item\em divF divide two complexes (a/b) \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a7364dda425aef124dda1f89f8b90d51d}{invF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a)
+\begin{DoxyCompactList}\small\item\em invF compute the inverse of a complex \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_ac14f07fc64e02dfe2bf7fc49ea281a10}{multiply\+By\+ConjF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a)
+\begin{DoxyCompactList}\small\item\em multiply\+By\+ConjF multiply a complex by it\textquotesingle{}s conjugate \end{DoxyCompactList}\item 
+float \hyperlink{complex__f_8c_a9bfe41c65910e65f180972038e46881c}{gainF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a)
+\begin{DoxyCompactList}\small\item\em gainF compute the gain of a complex \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a9ae6e848a8ae74ba0a132b4bdeee49fa}{create\+Nul\+ComplexF} (void)
+\begin{DoxyCompactList}\small\item\em create\+Nul\+ComplexF create a complex 0 + 0$\ast$i \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a4d3670cdd83a0e55d28c390476804f63}{create\+Unitary\+ComplexF} (void)
+\begin{DoxyCompactList}\small\item\em create\+Unitary\+ComplexF create a complex 1 + 1$\ast$i \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a04fb1df1f2eb4b9a2dde1e40ac565d4a}{create\+Random\+ComplexF} (void)
+\begin{DoxyCompactList}\small\item\em create\+Random\+ComplexF create a random complex \end{DoxyCompactList}\item 
+\hyperlink{structComplex__f}{Complex\+\_\+f} \hyperlink{complex__f_8c_a5c7b3c84b75536ccacada45b40f045b0}{create\+ComplexF} (float re, float im)
+\begin{DoxyCompactList}\small\item\em creat\+ComplexF create a complex by receiving real and imaginary part \end{DoxyCompactList}\item 
+void \hyperlink{complex__f_8c_aa9aa28014d061f3819017e9fa7befe8a}{print\+ComplexF} (\hyperlink{structComplex__f}{Complex\+\_\+f} a)\hypertarget{complex__f_8c_aa9aa28014d061f3819017e9fa7befe8a}{}\label{complex__f_8c_aa9aa28014d061f3819017e9fa7befe8a}
+
+\begin{DoxyCompactList}\small\item\em printf a complex \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+to handle basic complexes functions \begin{DoxyAuthor}{Author}
+Nicolas Sourbier 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/09/2018 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!addF@{addF}}
+\index{addF@{addF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{add\+F(\+Complex\+\_\+f a, Complex\+\_\+f b)}{addF(Complex_f a, Complex_f b)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} addF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a, }
+\item[{{\bf Complex\+\_\+f}}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_ac4432be4524cb2d9a4272703ee26a285}{}\label{complex__f_8c_ac4432be4524cb2d9a4272703ee26a285}
+
+
+addF add two complexes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the first operand \\
+\hline
+{\em b} & the complex to add to the first one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of the two complexes 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!conjugateF@{conjugateF}}
+\index{conjugateF@{conjugateF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{conjugate\+F(\+Complex\+\_\+f c)}{conjugateF(Complex_f c)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} conjugateF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a3301aa4f26a5a781576428a8de2552b6}{}\label{complex__f_8c_a3301aa4f26a5a781576428a8de2552b6}
+
+
+conjugateF computes the conjugate of a complex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the complex we want to know the conjugate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new complex containing the conjugate of the one given in param 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!create\+ComplexF@{create\+ComplexF}}
+\index{create\+ComplexF@{create\+ComplexF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{create\+Complex\+F(float re, float im)}{createComplexF(float re, float im)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} create\+ComplexF (
+\begin{DoxyParamCaption}
+\item[{float}]{re, }
+\item[{float}]{im}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a5c7b3c84b75536ccacada45b40f045b0}{}\label{complex__f_8c_a5c7b3c84b75536ccacada45b40f045b0}
+
+
+creat\+ComplexF create a complex by receiving real and imaginary part 
+
+\begin{DoxyReturn}{Returns}
+a random complex 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!create\+Nul\+ComplexF@{create\+Nul\+ComplexF}}
+\index{create\+Nul\+ComplexF@{create\+Nul\+ComplexF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{create\+Nul\+Complex\+F(void)}{createNulComplexF(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} create\+Nul\+ComplexF (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a9ae6e848a8ae74ba0a132b4bdeee49fa}{}\label{complex__f_8c_a9ae6e848a8ae74ba0a132b4bdeee49fa}
+
+
+create\+Nul\+ComplexF create a complex 0 + 0$\ast$i 
+
+\begin{DoxyReturn}{Returns}
+a nul complex 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!create\+Random\+ComplexF@{create\+Random\+ComplexF}}
+\index{create\+Random\+ComplexF@{create\+Random\+ComplexF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{create\+Random\+Complex\+F(void)}{createRandomComplexF(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} create\+Random\+ComplexF (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a04fb1df1f2eb4b9a2dde1e40ac565d4a}{}\label{complex__f_8c_a04fb1df1f2eb4b9a2dde1e40ac565d4a}
+
+
+create\+Random\+ComplexF create a random complex 
+
+\begin{DoxyReturn}{Returns}
+a random complex 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!create\+Unitary\+ComplexF@{create\+Unitary\+ComplexF}}
+\index{create\+Unitary\+ComplexF@{create\+Unitary\+ComplexF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{create\+Unitary\+Complex\+F(void)}{createUnitaryComplexF(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} create\+Unitary\+ComplexF (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a4d3670cdd83a0e55d28c390476804f63}{}\label{complex__f_8c_a4d3670cdd83a0e55d28c390476804f63}
+
+
+create\+Unitary\+ComplexF create a complex 1 + 1$\ast$i 
+
+\begin{DoxyReturn}{Returns}
+a complex with a real an imaginary part of 1 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!divF@{divF}}
+\index{divF@{divF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{div\+F(\+Complex\+\_\+f a, Complex\+\_\+f b)}{divF(Complex_f a, Complex_f b)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} divF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a, }
+\item[{{\bf Complex\+\_\+f}}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a9ff571018104b2884b663170e2150529}{}\label{complex__f_8c_a9ff571018104b2884b663170e2150529}
+
+
+divF divide two complexes (a/b) 
+
+\begin{DoxyReturn}{Returns}
+the quotient of the two 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!equals\+\_\+f@{equals\+\_\+f}}
+\index{equals\+\_\+f@{equals\+\_\+f}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{equals\+\_\+f(float a, float b, float precis)}{equals_f(float a, float b, float precis)}}]{\setlength{\rightskip}{0pt plus 5cm}int equals\+\_\+f (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{float}]{b, }
+\item[{float}]{precis}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_ae8d5115ead472e2bcbe978f146766274}{}\label{complex__f_8c_ae8d5115ead472e2bcbe978f146766274}
+
+
+test the equality of two floats relatively to a precision 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & and \\
+\hline
+{\em b} & the floats to compare. \\
+\hline
+{\em precis} & the precision of the comparison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if equal, 0 otherwise 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!gainF@{gainF}}
+\index{gainF@{gainF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{gain\+F(\+Complex\+\_\+f a)}{gainF(Complex_f a)}}]{\setlength{\rightskip}{0pt plus 5cm}float gainF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a9bfe41c65910e65f180972038e46881c}{}\label{complex__f_8c_a9bfe41c65910e65f180972038e46881c}
+
+
+gainF compute the gain of a complex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the complex we want to know the gain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the gain of the complex 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!invF@{invF}}
+\index{invF@{invF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{inv\+F(\+Complex\+\_\+f a)}{invF(Complex_f a)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} invF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_a7364dda425aef124dda1f89f8b90d51d}{}\label{complex__f_8c_a7364dda425aef124dda1f89f8b90d51d}
+
+
+invF compute the inverse of a complex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the complex to invert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the inverted complex 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!is\+Null\+\_\+f@{is\+Null\+\_\+f}}
+\index{is\+Null\+\_\+f@{is\+Null\+\_\+f}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{is\+Null\+\_\+f(\+Complex\+\_\+f a)}{isNull_f(Complex_f a)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+Null\+\_\+f (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_aa956ba70c67f43af6f2fb11a8f9d8248}{}\label{complex__f_8c_aa956ba70c67f43af6f2fb11a8f9d8248}
+
+
+test if a complex is N\+U\+LL relatively to a precision 
+
+\begin{DoxyReturn}{Returns}
+1 if null, 0 otherwise 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!multiply\+By\+ConjF@{multiply\+By\+ConjF}}
+\index{multiply\+By\+ConjF@{multiply\+By\+ConjF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{multiply\+By\+Conj\+F(\+Complex\+\_\+f a)}{multiplyByConjF(Complex_f a)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} multiply\+By\+ConjF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_ac14f07fc64e02dfe2bf7fc49ea281a10}{}\label{complex__f_8c_ac14f07fc64e02dfe2bf7fc49ea281a10}
+
+
+multiply\+By\+ConjF multiply a complex by it\textquotesingle{}s conjugate 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the complex to multiply \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the product of the complex and it\textquotesingle{}s conjugate 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!multiplyF@{multiplyF}}
+\index{multiplyF@{multiplyF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{multiply\+F(\+Complex\+\_\+f a, Complex\+\_\+f b)}{multiplyF(Complex_f a, Complex_f b)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} multiplyF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a, }
+\item[{{\bf Complex\+\_\+f}}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_ac068ed59ed029d889bc5328383c4ef83}{}\label{complex__f_8c_ac068ed59ed029d889bc5328383c4ef83}
+
+
+multiplyF multiply two complexes 
+
+\begin{DoxyReturn}{Returns}
+the product of a and b 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!scaleF@{scaleF}}
+\index{scaleF@{scaleF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{scale\+F(\+Complex\+\_\+f a, float c)}{scaleF(Complex_f a, float c)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} scaleF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a, }
+\item[{float}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_af7c74a571a7d93993389961b39ab125b}{}\label{complex__f_8c_af7c74a571a7d93993389961b39ab125b}
+
+
+scaleF multiply a complex by a constant 
+
+\begin{DoxyReturn}{Returns}
+the product of a and c 
+\end{DoxyReturn}
+\index{complex\+\_\+f.\+c@{complex\+\_\+f.\+c}!subF@{subF}}
+\index{subF@{subF}!complex\+\_\+f.\+c@{complex\+\_\+f.\+c}}
+\subsubsection[{\texorpdfstring{sub\+F(\+Complex\+\_\+f a, Complex\+\_\+f b)}{subF(Complex_f a, Complex_f b)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\+\_\+f} subF (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\+\_\+f}}]{a, }
+\item[{{\bf Complex\+\_\+f}}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{complex__f_8c_af097998e4898e6407ce54ed0da7280fb}{}\label{complex__f_8c_af097998e4898e6407ce54ed0da7280fb}
+
+
+subF substract two complexes (a-\/b) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the fist operand \\
+\hline
+{\em b} & the complex we want to substract \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the difference of the two 
+\end{DoxyReturn}

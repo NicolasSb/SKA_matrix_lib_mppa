@@ -1,1 +1,0 @@
-cmd_output/lib/io/libmatrix_io.a := /usr/local/k1tools/bin/k1-ar rcs output/lib/io/libmatrix_io.a  output/build/matrix_io_build/matrixcd.c.o output/build/matrix_io_build/matrixd.c.o output/build/matrix_io_build/matrixcf.c.o output/build/matrix_io_build/matrixf.c.o output/build/matrix_io_build/complex_f.c.o output/build/matrix_io_build/complex_d.c.o   

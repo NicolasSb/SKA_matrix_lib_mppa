@@ -58,25 +58,23 @@ Matrix_d * createRandomMatrixD(unsigned int rows, unsigned int column);
 
 /**
      * @brief createRandomMatrix initialize a random Matrix
-     * @param rows number of rows
-     * @param column number of columns
+     * @param J a matrix to fill with zeros
      * @return the random matrix
      */
 void createZeroMatrixD(Matrix_d *J);
 
 /**
      * @brief createTestVector initialize a known vector of size 3:1
-     * @param rows number of rows
-     * @param column number of columns
+     * @param type (1 or 2) you can choose between two matrix
      * @return the random matrix
      */
 Matrix_d *createTestVectorD(unsigned int type);
 
 /**
      * @brief createIdentityD compute the identoty matrix
-     * @param I A pointer to store the result
+     * @param id A pointer to store the result
      */
-void createIdentityD(Matrix_d *);
+void createIdentityD(Matrix_d *id);
 
 /**
      * @brief freeMatrixD free a  double matrix
@@ -107,7 +105,7 @@ void matrixSetD(Matrix_d *A, unsigned int i, unsigned int j, const double c);
      * @brief scaleMatrixD multiply each data by a constant ()
      * @param a the matrix to scale
      * @param c the 
-     * @todo Parallel programming
+
      */
 void scaleMatrixD(Matrix_d *a, const double c);
 
@@ -115,7 +113,7 @@ void scaleMatrixD(Matrix_d *a, const double c);
      * @brief addMatrixD compute A = A+B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void addMatrixD(Matrix_d *a, Matrix_d *b);
 
@@ -124,7 +122,7 @@ void addMatrixD(Matrix_d *a, Matrix_d *b);
 	 * BT being the transposed matrix of B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void addMatrixTD(Matrix_d *a, Matrix_d *b);
 
@@ -132,7 +130,7 @@ void addMatrixTD(Matrix_d *a, Matrix_d *b);
      * @brief subMatrixD compute A = A-B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void subMatrixD(Matrix_d *a, Matrix_d *b);
 
@@ -147,7 +145,7 @@ void mulMatrixD(Matrix_d *a, Matrix_d *b, Matrix_d *c);
 /**
      * @brief compute result = s*(mul1*mul2 + l*add)
      * @param result a matrix to store the result
-     * @param mul1 & mul2 matrices to multiply
+     * @param mul1 & @param mul2 matrices to multiply
      * @param add a matrix to add to the previous product
 	 * @param l a double to scale the add matrix
 	 * @param s a double to scale the result

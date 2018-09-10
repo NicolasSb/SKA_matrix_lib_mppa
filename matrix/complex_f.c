@@ -5,9 +5,9 @@
 
 
 /**
- * @file complex.cpp to handle basic complexes functions
+ * @file complex_f.c to handle basic complexes functions
  * @author Nicolas Sourbier
- * @date 22/06/2017
+ * @date 10/09/2018
  **/
 
 

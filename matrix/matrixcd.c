@@ -16,6 +16,14 @@
     #include <HAL/hal/board/boot_args.h>
 #endif
 
+
+/**
+ * @file matrixcd.c to handle matrix operations for complex doubles
+ * @author Nicolas Sourbier
+ * @date 10/09/2018
+ **/
+
+
 void printMatrixCD(Matrix_cd *a)
 {
     if(a)
@@ -233,7 +241,7 @@ void subMatrixCD(Matrix_cd *a, Matrix_cd *b)
     }
 }
 
-void mulMatrixD(Matrix_cd *a, Matrix_cd *b, Matrix_cd *c)
+void mulMatrixCD(Matrix_cd *a, Matrix_cd *b, Matrix_cd *c)
 {
 	if( a && b && c)
 	{
@@ -290,7 +298,7 @@ void scaleLineCD(Matrix_cd *a, unsigned int i, Complex_d f)
     }
 }
 
-int subXLinesD(Matrix_cd *a, unsigned int i, unsigned int i2, Complex_d f)
+int subXLinesCD(Matrix_cd *a, unsigned int i, unsigned int i2, Complex_d f)
 {
     int ret = 1;
     if(a)
@@ -317,7 +325,7 @@ int subXLinesD(Matrix_cd *a, unsigned int i, unsigned int i2, Complex_d f)
     return ret;
 }
 
-void mulAddScaleMatrixD(Matrix_cd *result, Matrix_cd *mul1, Matrix_cd *mul2, Matrix_cd * add, Complex_d l, Complex_d s)
+void mulAddScaleMatrixCD(Matrix_cd *result, Matrix_cd *mul1, Matrix_cd *mul2, Matrix_cd * add, Complex_d l, Complex_d s)
 {
 	unsigned int i, j, k;
 	Complex_d tmp = createNulComplexD();
@@ -358,7 +366,7 @@ void mulAddScaleMatrixD(Matrix_cd *result, Matrix_cd *mul1, Matrix_cd *mul2, Mat
 }
 
 
-int isDiagD(Matrix_cd *a)
+int isDiagCD(Matrix_cd *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -373,7 +381,7 @@ int isDiagD(Matrix_cd *a)
 	return 1;
 }
 
-int isTriUD(Matrix_cd *a)
+int isTriUCD(Matrix_cd *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -390,7 +398,7 @@ int isTriUD(Matrix_cd *a)
 	return 1;
 }
 
-int isTriLD(Matrix_cd *a)
+int isTriLCD(Matrix_cd *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -407,7 +415,7 @@ int isTriLD(Matrix_cd *a)
 	return 1;
 }
 
-int isSparseD(Matrix_cd *a)
+int isSparseCD(Matrix_cd *a)
 {
 	unsigned int i, j;
 	double count = 0.;
@@ -429,7 +437,7 @@ int isSparseD(Matrix_cd *a)
 
 
 
-
+/*
 
 
 
@@ -465,4 +473,4 @@ void giveJfD(Matrix_cd *A, Matrix_i * lbl, Matrix_cd *jac, int na)
             }
         }
     }
-}
+}*/
