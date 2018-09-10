@@ -17,7 +17,7 @@
 #endif
 
 /**
- * @file matrixd.c to handle matrix operations for floats
+ * @file matrixf.c to handle matrix operations for floats
  * @author Nicolas Sourbier
  * @date 10/09/2018
  **/

@@ -14,10 +14,11 @@
     #include <assert.h>
     #include <utask.h>// for pthread_barrier_t
     #include <HAL/hal/board/boot_args.h>
+
 #endif
 
 /**
- * @file matrixd.c to handle matrix operations for ints
+ * @file matrixi.c to handle matrix operations for integers
  * @author Nicolas Sourbier
  * @date 10/09/2018
  **/
