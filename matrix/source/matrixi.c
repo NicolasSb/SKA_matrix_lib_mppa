@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include "matrixd.h"
+#include "../include/matrixi.h"
 #include "errno.h"
 #include <omp.h>  
 
@@ -17,22 +17,22 @@
 #endif
 
 /**
- * @file matrixd.c to handle matrix operations for doubles
+ * @file matrixd.c to handle matrix operations for ints
  * @author Nicolas Sourbier
  * @date 10/09/2018
  **/
 
-void printMatrixD(Matrix_d *a)
+void printMatrixI(Matrix_i *a)
 {
     if(a)
     {
         unsigned int i, j;
-		printf("matrix of doubles [%d, %d]\n", a->row, a->column);
+		printf("matrix of ints [%d, %d]\n", a->row, a->column);
         for (i=0; i<a->row; i++)
         {
             for(j=0; j<a->column; j++)
             {
-                printf("%f",matrixGetD(a, i, j));
+                printf("%f",matrixGetI(a, i, j));
                 printf("\t");
             }
             printf("\n");
@@ -40,40 +40,40 @@ void printMatrixD(Matrix_d *a)
     }
 }
 
-Matrix_d * matrixAllocD(unsigned int rows, unsigned int column)
+Matrix_i * matrixAllocI(unsigned int rows, unsigned int column)
 {
-    Matrix_d *A = (Matrix_d *) malloc(sizeof(Matrix_d));
-    double *c = (double *)calloc(rows*column, sizeof(double));
+    Matrix_i *A = (Matrix_i *) malloc(sizeof(Matrix_i));
+    int *c = (int *)calloc(rows*column, sizeof(int));
     if (!A || !c)
     {
         fprintf(stderr,"Matrix Error \n in file: %s \n function %s\n line : %d\n %s \n", __FILE__,__FUNCTION__, __LINE__, strerror(errno));
         return NULL;
     }
-	A->data_type = M_DOUBLE;
+	A->data_type = M_INT;
     A->column = column;
     A->row = rows;
     A->data = c;
-    createZeroMatrixD(A);
+    createZeroMatrixI(A);
 	A->prop = M_SPARSE;
     return A;
 }
 
-Matrix_d * createRandomMatrixD(unsigned int rows, unsigned int column)
+Matrix_i * createRandomMatrixI(unsigned int rows, unsigned int column)
 {
-    Matrix_d *res = matrixAllocD(rows, column);
+    Matrix_i *res = matrixAllocI(rows, column);
     unsigned int i,j;
 	#pragma omp parallel for private(i,j) shared(res)
     for (i=0; i<res->row; i++)
     {
         for(j=0; j<res->column; j++)
         {
-            res->data[i*res->column+j] = (double) (rand()/RAND_MAX);
+            res->data[i*res->column+j] = (int) (rand()/RAND_MAX);
         }
     }
     return res;
 }
 
-void createZeroMatrixD(Matrix_d *J)
+void createZeroMatrixI(Matrix_i *J)
 {
     if(J)
     {
@@ -89,32 +89,32 @@ void createZeroMatrixD(Matrix_d *J)
     }
 }
 
-Matrix_d *createTestVectorD(unsigned int type)
+Matrix_i *createTestVectorI(unsigned int type)
 {
-    Matrix_d *res = matrixAllocD(3, 1);
-    double tmp;
+    Matrix_i *res = matrixAllocI(3, 1);
+    int tmp;
 	if(type == 1)
 	{
 		tmp = 0.19078;
-		matrixSetD(res, 0,0,tmp);
+		matrixSetI(res, 0,0,tmp);
 		tmp = 0.21209;
-		matrixSetD(res,1,0,tmp);
+		matrixSetI(res,1,0,tmp);
 		tmp = 0.30087;
-		matrixSetD(res,2,0,tmp);
+		matrixSetI(res,2,0,tmp);
 	}	
 	else if (type == 2)
 	{
 		tmp = 0.48679;
-		matrixSetD(res, 0,0,tmp);
+		matrixSetI(res, 0,0,tmp);
 		tmp = 0.11108;
-		matrixSetD(res,1,0,tmp);
+		matrixSetI(res,1,0,tmp);
 		tmp = 0.61440;
-		matrixSetD(res,2,0,tmp);
+		matrixSetI(res,2,0,tmp);
 	} 
     return res;
 }
 
-void createIdentityD(Matrix_d *I)
+void createIdentityI(Matrix_i *I)
 {
     if(I && I->column==I->row)
     {
@@ -128,7 +128,7 @@ void createIdentityD(Matrix_d *I)
     }
 }
 
-void freeMatrixD(Matrix_d *A)
+void freeMatrixI(Matrix_i *A)
 {
     if(A)
     {
@@ -141,25 +141,25 @@ void freeMatrixD(Matrix_d *A)
     }
 }
 
-double matrixGetD(Matrix_d *A, unsigned int i, unsigned int j)
+int matrixGetI(Matrix_i *A, unsigned int i, unsigned int j)
 {
     if(A)
         return  A->data[i*A->column+j];
     return 0;
 }
 
-void matrixSetD(Matrix_d *A, unsigned int i, unsigned int j, const double c)
+void matrixSetI(Matrix_i *A, unsigned int i, unsigned int j, const int c)
 {
     if(A)
         A->data[i*A->column+j] = c;
 }
 
-void scaleMatrixD(Matrix_d *a, const double c)
+void scaleMatrixI(Matrix_i *a, const int c)
 {
     if(a)
     {
         unsigned int i, j;
-        double tmp;
+        int tmp;
 		#pragma omp parallel for private(i,j) shared(a)
         for (i=0; i<a->row; i++)
         {
@@ -172,10 +172,10 @@ void scaleMatrixD(Matrix_d *a, const double c)
     }
 }
 
-void addMatrixD(Matrix_d *a, Matrix_d *b)
+void addMatrixI(Matrix_i *a, Matrix_i *b)
 {
     unsigned int i, j;
-    double tmpa, tmpb;
+    int tmpa, tmpb;
 	#pragma omp parallel for private(i,j) shared(a,b)
     for (i=0; i<a->row; i++)
     {
@@ -188,12 +188,12 @@ void addMatrixD(Matrix_d *a, Matrix_d *b)
     }
 }
 
-void addMatrixTD(Matrix_d *a, Matrix_d *b)
+void addMatrixTI(Matrix_i *a, Matrix_i *b)
 {
     if ((a->column==b->row) && (a->row==b->column))
     {
         unsigned int i, j;
-        double tmpa, tmpb;
+        int tmpa, tmpb;
 		#pragma omp parallel for private(i,j) shared(a,b)
         for (i=0; i<a->row; i++)
         {
@@ -207,14 +207,14 @@ void addMatrixTD(Matrix_d *a, Matrix_d *b)
     }
 }
 
-void subMatrixD(Matrix_d *a, Matrix_d *b)
+void subMatrixI(Matrix_i *a, Matrix_i *b)
 {
     if (a && b)
     {
         if ((a->column==b->column) && (a->row==b->row))
         {
             unsigned int i, j;
-            double tmpa, tmpb;
+            int tmpa, tmpb;
 			#pragma omp parallel for private(i,j) shared(a,b)
             for (i=0; i<a->row; i++)
             {
@@ -229,12 +229,12 @@ void subMatrixD(Matrix_d *a, Matrix_d *b)
     }
 }
 
-void mulMatrixD(Matrix_d *a, Matrix_d *b, Matrix_d *c)
+void mulMatrixI(Matrix_i *a, Matrix_i *b, Matrix_i *c)
 {
 	if( a && b && c)
 	{
 		unsigned int i, j, k;
-		double tmp = 0.f;
+		int tmp = 0.f;
 		#pragma omp parallel for private(i,j,k) shared(a,b,c)
 		for (i = 0; i< a->row; i++)
 		{	
@@ -251,22 +251,22 @@ void mulMatrixD(Matrix_d *a, Matrix_d *b, Matrix_d *c)
 	}
 }
 
-void matRefD(Matrix_d *A)
+void matRefI(Matrix_i *A)
 {
     if (A)
     {
-        double c = A->data[0];
-        scaleMatrixD(A, 1/c);
+        int c = A->data[0];
+        scaleMatrixI(A, 1/c);
     }
 }
 
-void scaleLineD(Matrix_d *a, unsigned int i, double f)
+void scaleLineI(Matrix_i *a, unsigned int i, int f)
 {
     if(a)
     {
         if(i<a->row)
         {
-            double c;
+            int c;
             unsigned int j;
 			#pragma omp parallel for private(j) shared(a)
             for(j=0; j<a->column; j++)
@@ -278,14 +278,14 @@ void scaleLineD(Matrix_d *a, unsigned int i, double f)
     }
 }
 
-int subXLinesD(Matrix_d *a, unsigned int i, unsigned int i2, double f)
+int subXLinesI(Matrix_i *a, unsigned int i, unsigned int i2, int f)
 {
     int ret = 1;
     if(a)
     {
         if(i<a->row)
         {
-            double c,tmp, tmp1;
+            int c,tmp, tmp1;
             unsigned int j;
 			#pragma omp parallel for private(j) shared(a)
             for(j=0; j<a->column; j++)
@@ -305,10 +305,10 @@ int subXLinesD(Matrix_d *a, unsigned int i, unsigned int i2, double f)
     return ret;
 }
 
-void mulAddScaleMatrixD(Matrix_d *result, Matrix_d *mul1, Matrix_d *mul2, Matrix_d * add, double l, double s)
+void mulAddScaleMatrixI(Matrix_i *result, Matrix_i *mul1, Matrix_i *mul2, Matrix_i * add, int l, int s)
 {
 	unsigned int i, j, k;
-	double tmp = 0.f;
+	int tmp = 0.f;
 	if(result && mul1 && mul2 && !add)
 	{
 		#pragma omp parallel for private(i,j,k) shared(mul1,mul2,result)
@@ -346,7 +346,7 @@ void mulAddScaleMatrixD(Matrix_d *result, Matrix_d *mul1, Matrix_d *mul2, Matrix
 }
 
 
-int isDiagD(Matrix_d *a)
+int isDiagI(Matrix_i *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -361,7 +361,7 @@ int isDiagD(Matrix_d *a)
 	return 1;
 }
 
-int isTriUD(Matrix_d *a)
+int isTriUI(Matrix_i *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -378,7 +378,7 @@ int isTriUD(Matrix_d *a)
 	return 1;
 }
 
-int isTriLD(Matrix_d *a)
+int isTriLI(Matrix_i *a)
 {
 	unsigned int i, j;
 	for(i = 0; i<a->column; i++)
@@ -395,10 +395,10 @@ int isTriLD(Matrix_d *a)
 	return 1;
 }
 
-int isSparseD(Matrix_d *a)
+int isSparseI(Matrix_i *a)
 {
 	unsigned int i, j;
-	double count = 0.;
+	int count = 0.;
 	for(i = 0; i<a->column; i++)
 	{
 		for(j=0; j<a->row; j++)

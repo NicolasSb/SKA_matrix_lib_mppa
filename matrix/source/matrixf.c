@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include "matrixf.h"
+#include "../include/matrixf.h"
 #include "errno.h"
 #include <omp.h>  
 

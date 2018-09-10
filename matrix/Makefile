@@ -10,16 +10,20 @@ board := developer
 
 system-name := bare
 COMPILE_OPTI := -O3
+VPATH=source:include
+SOURCE=matrixcd.c matrixd.c matrixcf.c matrixf.c matrixi.c complex_f.c complex_d.c
+
+
 
 cluster-cflags := -fopenmp
 cluster-lflags := -fopenmp
 cflags-io := -fopenmp
 io-lflags := -fopenmp
 
-matrix_io-srcs := matrixcd.c matrixd.c matrixcf.c matrixf.c complex_f.c complex_d.c
+matrix_io-srcs := $(SOURCE)
 matrix_io-name := matrix_io
 io-lib := matrix_io
-matrix_c-srcs := matrixcd.c matrixd.c matrixcf.c matrixf.c complex_f.c complex_d.c
+matrix_c-srcs := $(SOURCE)
 matrix_c-name := matrix_c
 cluster-lib := matrix_c
 

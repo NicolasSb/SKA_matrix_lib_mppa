@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "complex_d.h"
+#include "../include/complex_d.h"
 
 /**
  * @file complex_d.c to handle basic complexes functions
