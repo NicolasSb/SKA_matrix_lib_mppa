@@ -9,8 +9,6 @@ Please, first transfer your data on a cluster and then call the profided functio
 
 ## build and linking
 
-###build
-
 To build the lib simply copy the provided files on the MPPA in a new folder.
 Open a terminal and go in this folder 
 ```
@@ -22,8 +20,6 @@ you can find the library in the newly created directory :
 
 <folder>/output/lib/io/libmatrix_io.a 			for the io static lib
 <folder>/output/lib/cluster/libmatrix_c.a		for the cluster static lib
-
-###linking
 
 ### linking on the clusters
 
