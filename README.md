@@ -2,7 +2,7 @@
 
 ## A complex and matrix calculation framework
 These files are given without any waranty.
-This framework is developped in c and aims to give a static library for INSA developers workiing for the SKA project.
+This framework is developped in c and aims to give a static library for INSA developers working for the SKA project.
 The matrix functions are ALREADY multithreaded onto a single cluster of the MPPA.
 Please, first transfer your data on a cluster and then call the profided functions.
 
