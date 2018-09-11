@@ -22,6 +22,67 @@
  * @date 10/09/2018
  **/
 
+
+Matrix_d * readMatrix_d_File(char * filename)
+{
+	if(!filename)
+		return NULL;
+	FILE * f = fopen(filename, "rb+");
+	if(!f)
+	{
+		return NULL;
+	}
+
+	M_data_type dtype;
+	fread(&dtype, sizeof(M_data_type),1,f);
+	if(dtype != M_DOUBLE)
+	{
+		return NULL;
+	}
+	unsigned int row, column;
+	fread(&row, sizeof(unsigned int),1,f);
+	fread(&column, sizeof(unsigned int),1,f);
+
+	Matrix_d * mat = matrixAllocD(row,column);
+	
+	if(mat == NULL)
+		return NULL;
+
+	fread(mat->data, sizeof(double), row*column, f);
+	fread(&mat->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return mat;
+	return NULL;
+}
+
+
+
+int writeMatrix_d_File(char * filename, Matrix_d * ptr)
+{
+	if(!filename || !ptr)
+		return 0;
+
+	FILE * f = fopen(filename, "wb+");
+	if(!f)
+	{
+		return 0;
+	}
+	
+	fwrite (&ptr->data_type, sizeof(M_data_type), 1, f);
+	fwrite (&ptr->row, sizeof(unsigned int), 1, f);
+	fwrite (&ptr->column, sizeof(unsigned int), 1, f);
+	unsigned int i;
+	for(i = 0; i < ptr->row*ptr->column; i++)
+		fwrite (&ptr->data[i], sizeof(double), 1, f);
+
+	fwrite (&ptr->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return 0;
+	return 1;
+}
+
 void printMatrixD(Matrix_d *a)
 {
     if(a)
@@ -345,6 +406,10 @@ void mulAddScaleMatrixD(Matrix_d *result, Matrix_d *mul1, Matrix_d *mul2, Matrix
 	}
 }
 
+static int is_null(double a, double precision)
+{
+	return (a<precision && a>(-precision));
+}
 
 int isDiagD(Matrix_d *a)
 {
@@ -353,7 +418,7 @@ int isDiagD(Matrix_d *a)
 	{
 		for(j=0; j<a->row; j++)
 		{
-			if(i!=j && a->data[i*a->column+j] !=0)
+			if(i!=j && !is_null(a->data[i*a->column+j], 10e-9))
 				return 0;
 		}
 	}
@@ -370,7 +435,7 @@ int isTriUD(Matrix_d *a)
 		{
 			if(i<=j)
 				continue;
-			if(a->data[i*a->column+j] !=0)
+			if(!is_null(a->data[i*a->column+j], 10e-9))
 				return 0;
 		}
 	}
@@ -387,7 +452,7 @@ int isTriLD(Matrix_d *a)
 		{
 			if(i>=j)
 				continue;
-			if(a->data[i*a->column+j] !=0)
+			if(!is_null(a->data[i*a->column+j], 10e-9))
 				return 0;
 		}
 	}
@@ -403,7 +468,7 @@ int isSparseD(Matrix_d *a)
 	{
 		for(j=0; j<a->row; j++)
 		{
-			if(a->data[i*a->column+j] == 0)
+			if(is_null(a->data[i*a->column+j], 10e-9))
 				++count;
 		}
 	}

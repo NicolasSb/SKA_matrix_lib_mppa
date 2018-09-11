@@ -1,6 +1,9 @@
 #ifndef COMPLEXF_H
 #define COMPLEXF_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 /**
 *	\struct Complex_f complex_f.h

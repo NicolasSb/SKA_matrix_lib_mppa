@@ -23,6 +23,66 @@
  * @date 10/09/2018
  **/
 
+Matrix_cf * readMatrix_cf_File(char * filename)
+{
+	if(!filename)
+		return NULL;
+	FILE * f = fopen(filename, "rb+");
+	if(!f)
+	{
+		return NULL;
+	}
+
+	M_data_type dtype;
+	fread(&dtype, sizeof(M_data_type),1,f);
+	if(dtype != M_COMPLEX_F)
+	{
+		return NULL;
+	}
+	unsigned int row, column;
+	fread(&row, sizeof(unsigned int),1,f);
+	fread(&column, sizeof(unsigned int),1,f);
+
+	Matrix_cf * mat = matrixAllocCF(row,column);
+	
+	if(mat == NULL)
+		return NULL;
+
+	fread(mat->data, sizeof(Complex_f), row*column, f);
+	fread(&mat->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return mat;
+	return NULL;
+}
+
+
+
+int writeMatrix_cf_File(char * filename, Matrix_cf * ptr)
+{
+	if(!filename || !ptr)
+		return 0;
+
+	FILE * f = fopen(filename, "wb+");
+	if(!f)
+	{
+		return 0;
+	}
+	
+	fwrite (&ptr->data_type, sizeof(M_data_type), 1, f);
+	fwrite (&ptr->row, sizeof(unsigned int), 1, f);
+	fwrite (&ptr->column, sizeof(unsigned int), 1, f);
+	unsigned int i;
+	for(i = 0; i < ptr->row*ptr->column; i++)
+		fwrite (&ptr->data[i], sizeof(Complex_f), 1, f);
+
+	fwrite (&ptr->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return 0;
+	return 1;
+}
+
 void printMatrixCF(Matrix_cf *a)
 {
     if(a)
@@ -53,7 +113,7 @@ Matrix_cf * matrixAllocCF(unsigned int rows, unsigned int column)
     A->column = column;
     A->row = rows;
     A->data = c;
-    createZeroMatrixF(A);
+    createZeroMatrixCF(A);
 	A->prop = M_SPARSE;
     return A;
 }

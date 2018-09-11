@@ -1,12 +1,13 @@
-\hypertarget{matrixd_8c}{}\section{matrixd.\+c File Reference}
-\label{matrixd_8c}\index{matrixd.\+c@{matrixd.\+c}}
+\hypertarget{matrixd_8c}{}\section{source/matrixd.c File Reference}
+\label{matrixd_8c}\index{source/matrixd.\+c@{source/matrixd.\+c}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$math.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}matrixd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/matrixd.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$omp.\+h$>$}\\*
-Include dependency graph for matrixd.\+c\+:\nopagebreak
+Include dependency graph for matrixd.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,6 +17,10 @@ Include dependency graph for matrixd.\+c\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$ \hyperlink{matrixd_8c_ad09e16253099155a67b6dba661c0cc2a}{read\+Matrix\+\_\+d\+\_\+\+File} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em reads a matrix from a binary file \end{DoxyCompactList}\item 
+int \hyperlink{matrixd_8c_a14e06a3b9dcda91c60cee7359c8502e4}{write\+Matrix\+\_\+d\+\_\+\+File} (char $\ast$filename, \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em writes a matrix in a binary file \end{DoxyCompactList}\item 
 void \hyperlink{matrixd_8c_aeebf82147e41165a72a1faf5b6f58cbe}{print\+MatrixD} (\hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$a)
 \begin{DoxyCompactList}\small\item\em print\+MatrixD display a matrix of doubles (usefull for testing) \end{DoxyCompactList}\item 
 \hyperlink{structMatrix__d}{Matrix\+\_\+d} $\ast$ \hyperlink{matrixd_8c_a6ff76857b26a8b0fc0eca59bfa849e9a}{matrix\+AllocD} (unsigned int rows, unsigned int column)
@@ -64,12 +69,6 @@ int \hyperlink{matrixd_8c_a8f670f030620d51be8576e58eb7c9938}{is\+SparseD} (\hype
 
 \subsection{Detailed Description}
 to handle matrix operations for doubles \begin{DoxyAuthor}{Author}
-Nicolas Sourbier 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-10/09/2018
-\end{DoxyDate}
-to handle matrix operations for floats \begin{DoxyAuthor}{Author}
 Nicolas Sourbier 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
@@ -432,6 +431,25 @@ print\+MatrixD display a matrix of doubles (usefull for testing)
 {\em a} & the matrix to display \\
 \hline
 \end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!read\+Matrix\+\_\+d\+\_\+\+File@{read\+Matrix\+\_\+d\+\_\+\+File}}
+\index{read\+Matrix\+\_\+d\+\_\+\+File@{read\+Matrix\+\_\+d\+\_\+\+File}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{read\+Matrix\+\_\+d\+\_\+\+File(char $\ast$filename)}{readMatrix_d_File(char *filename)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+d}$\ast$ read\+Matrix\+\_\+d\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_ad09e16253099155a67b6dba661c0cc2a}{}\label{matrixd_8c_ad09e16253099155a67b6dba661c0cc2a}
+
+
+reads a matrix from a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the writen matrix N\+U\+LL if there was an error 
+\end{DoxyReturn}
 \index{matrixd.\+c@{matrixd.\+c}!scale\+LineD@{scale\+LineD}}
 \index{scale\+LineD@{scale\+LineD}!matrixd.\+c@{matrixd.\+c}}
 \subsubsection[{\texorpdfstring{scale\+Line\+D(\+Matrix\+\_\+d $\ast$a, unsigned int i, double f)}{scaleLineD(Matrix_d *a, unsigned int i, double f)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+LineD (
@@ -517,3 +535,25 @@ sub\+X\+LinesD computes line i -\/ f$\ast$line i2 and store it into line i
 {\em f} & a to scale the matrix \\
 \hline
 \end{DoxyParams}
+\index{matrixd.\+c@{matrixd.\+c}!write\+Matrix\+\_\+d\+\_\+\+File@{write\+Matrix\+\_\+d\+\_\+\+File}}
+\index{write\+Matrix\+\_\+d\+\_\+\+File@{write\+Matrix\+\_\+d\+\_\+\+File}!matrixd.\+c@{matrixd.\+c}}
+\subsubsection[{\texorpdfstring{write\+Matrix\+\_\+d\+\_\+\+File(char $\ast$filename, Matrix\+\_\+d $\ast$ptr)}{writeMatrix_d_File(char *filename, Matrix_d *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}int write\+Matrix\+\_\+d\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{{\bf Matrix\+\_\+d} $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixd_8c_a14e06a3b9dcda91c60cee7359c8502e4}{}\label{matrixd_8c_a14e06a3b9dcda91c60cee7359c8502e4}
+
+
+writes a matrix in a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+{\em ptr} & the matrix to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 0 otherwise 
+\end{DoxyReturn}

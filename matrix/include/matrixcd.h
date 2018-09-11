@@ -35,6 +35,22 @@ typedef enum M_Property
  * **************************************************/
 
 /**
+*	\brief reads a matrix from a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\return the writen matrix NULL if there was an error
+*/ 
+Matrix_cd * readMatrix_cd_File(char * filename);
+
+
+/**
+*	\brief writes a matrix in a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\param ptr the matrix to write
+*	\return 1 on success 0 otherwise
+*/
+int writeMatrix_cd_File(char * filename, Matrix_cd * ptr);
+
+/**
      * @brief printMatrixCD display a matrix of Complex_d (usefull for testing)
      * @param a the matrix to display
      */

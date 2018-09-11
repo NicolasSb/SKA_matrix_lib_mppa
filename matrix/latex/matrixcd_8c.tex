@@ -1,12 +1,13 @@
-\hypertarget{matrixcd_8c}{}\section{matrixcd.\+c File Reference}
-\label{matrixcd_8c}\index{matrixcd.\+c@{matrixcd.\+c}}
+\hypertarget{matrixcd_8c}{}\section{source/matrixcd.c File Reference}
+\label{matrixcd_8c}\index{source/matrixcd.\+c@{source/matrixcd.\+c}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$math.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}matrixcd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/matrixcd.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$omp.\+h$>$}\\*
-Include dependency graph for matrixcd.\+c\+:\nopagebreak
+Include dependency graph for matrixcd.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,6 +17,10 @@ Include dependency graph for matrixcd.\+c\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{structMatrix__cd}{Matrix\+\_\+cd} $\ast$ \hyperlink{matrixcd_8c_a7ed7d0a1f9d01c5798fe7bb110142b40}{read\+Matrix\+\_\+cd\+\_\+\+File} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em reads a matrix from a binary file \end{DoxyCompactList}\item 
+int \hyperlink{matrixcd_8c_ae2ab3f4695f566a02286049875234992}{write\+Matrix\+\_\+cd\+\_\+\+File} (char $\ast$filename, \hyperlink{structMatrix__cd}{Matrix\+\_\+cd} $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em writes a matrix in a binary file \end{DoxyCompactList}\item 
 void \hyperlink{matrixcd_8c_a8cfe8319ad972882983e40c741bf472e}{print\+Matrix\+CD} (\hyperlink{structMatrix__cd}{Matrix\+\_\+cd} $\ast$a)
 \begin{DoxyCompactList}\small\item\em print\+Matrix\+CD display a matrix of \hyperlink{structComplex__d}{Complex\+\_\+d} (usefull for testing) \end{DoxyCompactList}\item 
 \hyperlink{structMatrix__cd}{Matrix\+\_\+cd} $\ast$ \hyperlink{matrixcd_8c_a66d35f28fe68c6e02e00028dd65c1d13}{matrix\+Alloc\+CD} (unsigned int rows, unsigned int column)
@@ -426,6 +431,25 @@ print\+Matrix\+CD display a matrix of \hyperlink{structComplex__d}{Complex\+\_\+
 {\em a} & the matrix to display \\
 \hline
 \end{DoxyParams}
+\index{matrixcd.\+c@{matrixcd.\+c}!read\+Matrix\+\_\+cd\+\_\+\+File@{read\+Matrix\+\_\+cd\+\_\+\+File}}
+\index{read\+Matrix\+\_\+cd\+\_\+\+File@{read\+Matrix\+\_\+cd\+\_\+\+File}!matrixcd.\+c@{matrixcd.\+c}}
+\subsubsection[{\texorpdfstring{read\+Matrix\+\_\+cd\+\_\+\+File(char $\ast$filename)}{readMatrix_cd_File(char *filename)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+cd}$\ast$ read\+Matrix\+\_\+cd\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcd_8c_a7ed7d0a1f9d01c5798fe7bb110142b40}{}\label{matrixcd_8c_a7ed7d0a1f9d01c5798fe7bb110142b40}
+
+
+reads a matrix from a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the writen matrix N\+U\+LL if there was an error 
+\end{DoxyReturn}
 \index{matrixcd.\+c@{matrixcd.\+c}!scale\+Line\+CD@{scale\+Line\+CD}}
 \index{scale\+Line\+CD@{scale\+Line\+CD}!matrixcd.\+c@{matrixcd.\+c}}
 \subsubsection[{\texorpdfstring{scale\+Line\+C\+D(\+Matrix\+\_\+cd $\ast$a, unsigned int i, Complex\+\_\+d f)}{scaleLineCD(Matrix_cd *a, unsigned int i, Complex_d f)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+Line\+CD (
@@ -511,3 +535,25 @@ sub\+X\+Lines\+CD computes line i -\/ f$\ast$line i2 and store it into line i
 {\em f} & a to scale the matrix \\
 \hline
 \end{DoxyParams}
+\index{matrixcd.\+c@{matrixcd.\+c}!write\+Matrix\+\_\+cd\+\_\+\+File@{write\+Matrix\+\_\+cd\+\_\+\+File}}
+\index{write\+Matrix\+\_\+cd\+\_\+\+File@{write\+Matrix\+\_\+cd\+\_\+\+File}!matrixcd.\+c@{matrixcd.\+c}}
+\subsubsection[{\texorpdfstring{write\+Matrix\+\_\+cd\+\_\+\+File(char $\ast$filename, Matrix\+\_\+cd $\ast$ptr)}{writeMatrix_cd_File(char *filename, Matrix_cd *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}int write\+Matrix\+\_\+cd\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{{\bf Matrix\+\_\+cd} $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcd_8c_ae2ab3f4695f566a02286049875234992}{}\label{matrixcd_8c_ae2ab3f4695f566a02286049875234992}
+
+
+writes a matrix in a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+{\em ptr} & the matrix to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 0 otherwise 
+\end{DoxyReturn}

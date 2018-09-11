@@ -35,6 +35,23 @@ typedef enum M_Property
  * **************************************************/
 
 /**
+*	\brief reads a matrix from a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\return the writen matrix NULL if there was an error
+*/
+Matrix_f * readMatrix_f_File(char * filename);
+
+
+/**
+*	\brief writes a matrix in a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\param ptr the matrix to write
+*	\return 1 on success 0 otherwise
+*/
+int writeMatrix_f_File(char * filename, Matrix_f * ptr);
+
+
+/**
      * @brief printMatrixF display a matrix of floats (usefull for testing)
      * @param a the matrix to display
      */

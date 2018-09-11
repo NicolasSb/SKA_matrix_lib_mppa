@@ -23,17 +23,80 @@
  * @date 10/09/2018
  **/
 
+
+
+Matrix_i * readMatrix_i_File(char * filename)
+{
+	if(!filename)
+		return NULL;
+	FILE * f = fopen(filename, "rb+");
+	if(!f)
+	{
+		return NULL;
+	}
+
+	M_data_type dtype;
+	fread(&dtype, sizeof(M_data_type),1,f);
+	if(dtype != M_INT)
+	{
+		return NULL;
+	}
+	unsigned int row, column;
+	fread(&row, sizeof(unsigned int),1,f);
+	fread(&column, sizeof(unsigned int),1,f);
+
+	Matrix_i * mat = matrixAllocI(row,column);
+	
+	if(mat == NULL)
+		return NULL;
+
+	fread(mat->data, sizeof(int), row*column, f);
+	fread(&mat->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return mat;
+	return NULL;
+}
+
+
+
+int writeMatrix_i_File(char * filename, Matrix_i * ptr)
+{
+	if(!filename || !ptr)
+		return 0;
+
+	FILE * f = fopen(filename, "wb+");
+	if(!f)
+	{
+		return 0;
+	}
+	
+	fwrite (&ptr->data_type, sizeof(M_data_type), 1, f);
+	fwrite (&ptr->row, sizeof(unsigned int), 1, f);
+	fwrite (&ptr->column, sizeof(unsigned int), 1, f);
+	unsigned int i;
+	for(i = 0; i < ptr->row*ptr->column; i++)
+		fwrite (&ptr->data[i], sizeof(int), 1, f);
+
+	fwrite (&ptr->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return 0;
+	return 1;
+}
+
+
 void printMatrixI(Matrix_i *a)
 {
     if(a)
     {
         unsigned int i, j;
-		printf("matrix of ints [%d, %d]\n", a->row, a->column);
+		printf("matrix of integer [%d, %d]\n", a->row, a->column);
         for (i=0; i<a->row; i++)
         {
             for(j=0; j<a->column; j++)
             {
-                printf("%f",matrixGetI(a, i, j));
+                printf("%d",matrixGetI(a, i, j));
                 printf("\t");
             }
             printf("\n");
@@ -309,7 +372,7 @@ int subXLinesI(Matrix_i *a, unsigned int i, unsigned int i2, int f)
 void mulAddScaleMatrixI(Matrix_i *result, Matrix_i *mul1, Matrix_i *mul2, Matrix_i * add, int l, int s)
 {
 	unsigned int i, j, k;
-	int tmp = 0.f;
+	int tmp = 0;
 	if(result && mul1 && mul2 && !add)
 	{
 		#pragma omp parallel for private(i,j,k) shared(mul1,mul2,result)
@@ -399,7 +462,7 @@ int isTriLI(Matrix_i *a)
 int isSparseI(Matrix_i *a)
 {
 	unsigned int i, j;
-	int count = 0.;
+	float count = 0.;
 	for(i = 0; i<a->column; i++)
 	{
 		for(j=0; j<a->row; j++)
@@ -408,11 +471,12 @@ int isSparseI(Matrix_i *a)
 				++count;
 		}
 	}
-	if((count/(a->row*a->column)) >= 0.67)
+	if((count/(a->row*a->column)) >= 0.66)
 	{
 		a->prop = M_SPARSE;
 		return 1;
 	}
-	return 0;
+	else
+		return 0;
 }
 

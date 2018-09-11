@@ -102,15 +102,21 @@ Include dependency graph for matrixf.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="matrixf_8c__incl.png" border="0" usemap="#source_2matrixf_8c" alt=""/></div>
 <map name="source_2matrixf_8c" id="source_2matrixf_8c">
-<area shape="rect" id="node5" href="matrixf_8h_source.html" title="../include/matrixf.h" alt="" coords="267,80,397,107"/>
-<area shape="rect" id="node7" href="matrix__type_8h_source.html" title="matrix_type.h" alt="" coords="337,155,439,181"/>
-<area shape="rect" id="node8" href="complex__f_8h_source.html" title="complex_f.h" alt="" coords="283,229,376,256"/>
-<area shape="rect" id="node9" href="complex__d_8h_source.html" title="complex_d.h" alt="" coords="400,229,496,256"/>
+<area shape="rect" id="node5" href="matrixf_8h_source.html" title="../include/matrixf.h" alt="" coords="184,80,315,107"/>
+<area shape="rect" id="node7" href="matrix__type_8h_source.html" title="matrix_type.h" alt="" coords="107,155,208,181"/>
+<area shape="rect" id="node8" href="complex__f_8h_source.html" title="complex_f.h" alt="" coords="101,229,195,256"/>
+<area shape="rect" id="node9" href="complex__d_8h_source.html" title="complex_d.h" alt="" coords="219,229,315,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a0765510a29128648da66826dea1f7c4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrix__f.html">Matrix_f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixf_8c.html#a0765510a29128648da66826dea1f7c4f">readMatrix_f_File</a> (char *filename)</td></tr>
+<tr class="memdesc:a0765510a29128648da66826dea1f7c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads a matrix from a binary file  <a href="#a0765510a29128648da66826dea1f7c4f">More...</a><br /></td></tr>
+<tr class="separator:a0765510a29128648da66826dea1f7c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b504bfe17f177776b461ef1c789c23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixf_8c.html#ad4b504bfe17f177776b461ef1c789c23">writeMatrix_f_File</a> (char *filename, <a class="el" href="structMatrix__f.html">Matrix_f</a> *ptr)</td></tr>
+<tr class="memdesc:ad4b504bfe17f177776b461ef1c789c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">writes a matrix in a binary file  <a href="#ad4b504bfe17f177776b461ef1c789c23">More...</a><br /></td></tr>
+<tr class="separator:ad4b504bfe17f177776b461ef1c789c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65db426ed594e233c1cf08b1d764959c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixf_8c.html#a65db426ed594e233c1cf08b1d764959c">printMatrixF</a> (<a class="el" href="structMatrix__f.html">Matrix_f</a> *a)</td></tr>
 <tr class="memdesc:a65db426ed594e233c1cf08b1d764959c"><td class="mdescLeft">&#160;</td><td class="mdescRight">printMatrixF display a matrix of floats (usefull for testing)  <a href="#a65db426ed594e233c1cf08b1d764959c">More...</a><br /></td></tr>
 <tr class="separator:a65db426ed594e233c1cf08b1d764959c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -379,7 +385,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>freeMatrixF free a float matrix </p>
-<p><a class="el" href="matrixf_8h_source.html">matrixf.h</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td>the matrix to free </td></tr>
   </table>
@@ -765,6 +771,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0765510a29128648da66826dea1f7c4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMatrix__f.html">Matrix_f</a>* readMatrix_f_File </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reads a matrix from a binary file </p>
+<p>Previously defined property matrix enum (view <a class="el" href="matrix__type_8h_source.html">matrix_type.h</a>)</p>
+<p>typedef enum M_Property { M_DIAG, M_TRI_U, M_TRI_L, M_SPARSE, M_DENSE }M_Property; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the name of the file where the matrix is writen </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the writen matrix NULL if there was an error </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a0c492863193fa933287a4a688facadac"></a>
 <div class="memitem">
 <div class="memproto">
@@ -923,6 +955,42 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ad4b504bfe17f177776b461ef1c789c23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeMatrix_f_File </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMatrix__f.html">Matrix_f</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>writes a matrix in a binary file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the name of the file where the matrix is writen </td></tr>
+    <tr><td class="paramname">ptr</td><td>the matrix to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success 0 otherwise </dd></dl>
 
 </div>
 </div>

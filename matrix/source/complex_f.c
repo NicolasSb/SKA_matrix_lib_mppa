@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 #include "../include/complex_f.h"
 
 
@@ -10,6 +7,24 @@
  * @date 10/09/2018
  **/
 
+
+static double mysqrt(double x) {
+    if (x <= 0)
+        return 0;
+    int exp = 0;
+    x = frexp(x, &exp);
+    if (exp & 1) {   
+        exp--;
+        x *= 2;
+    }
+    double y = (1+x)/2;
+    double z = 0;
+    while (y -z > 1e-8) {  
+        z = y;
+        y = (y + x/y) / 2;
+    }
+    return ldexp(y, exp/2); 
+}
 
 int equals_f(float a, float b, float precis)
 {
@@ -64,7 +79,7 @@ Complex_f multiplyF(Complex_f a, Complex_f b)
 Complex_f divF(Complex_f a, Complex_f b)
 {
     Complex_f res, tmp;
-    if(!equals(b.im, 0.0f, 1e-9))
+    if(!equals_f(b.im, 0.0f, 1e-9))
     {
         tmp = conjugateF(b);
         a = multiplyF(a, tmp);
@@ -98,7 +113,7 @@ Complex_f multiplyByConjF(Complex_f a)
 
 float gainF(Complex_f a)
 {
-    return sqrt(pow(a.im,2)+pow(a.re,2));
+    return mysqrt((a.im*a.im)+(a.re*a.re));
 }
 
 Complex_f createNulComplexF(void)

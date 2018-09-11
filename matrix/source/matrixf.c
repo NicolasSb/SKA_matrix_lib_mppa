@@ -22,6 +22,68 @@
  * @date 10/09/2018
  **/
 
+
+Matrix_f * readMatrix_f_File(char * filename)
+{
+	if(!filename)
+		return NULL;
+	FILE * f = fopen(filename, "rb+");
+	if(!f)
+	{
+		return NULL;
+	}
+
+	M_data_type dtype;
+	fread(&dtype, sizeof(M_data_type),1,f);
+	if(dtype != M_FLOAT)
+	{
+		return NULL;
+	}
+	unsigned int row, column;
+	fread(&row, sizeof(unsigned int),1,f);
+	fread(&column, sizeof(unsigned int),1,f);
+
+	Matrix_f * mat = matrixAllocF(row,column);
+	
+	if(mat == NULL)
+		return NULL;
+
+	fread(mat->data, sizeof(float), row*column, f);
+	fread(&mat->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return mat;
+	return NULL;
+}
+
+
+
+int writeMatrix_f_File(char * filename, Matrix_f * ptr)
+{
+	if(!filename || !ptr)
+		return 0;
+
+	FILE * f = fopen(filename, "wb+");
+	if(!f)
+	{
+		return 0;
+	}
+	
+	fwrite (&ptr->data_type, sizeof(M_data_type), 1, f);
+	fwrite (&ptr->row, sizeof(unsigned int), 1, f);
+	fwrite (&ptr->column, sizeof(unsigned int), 1, f);
+	unsigned int i;
+	for(i = 0; i < ptr->row*ptr->column; i++)
+		fwrite (&ptr->data[i], sizeof(float), 1, f);
+
+	fwrite (&ptr->prop, sizeof(M_Property), 1, f);
+
+	if (!fclose(f))
+		return 0;
+	return 1;
+	
+}
+
 void printMatrixF(Matrix_f *a)
 {
     if(a)
@@ -345,6 +407,10 @@ void mulAddScaleMatrixF(Matrix_f *result, Matrix_f *mul1, Matrix_f *mul2, Matrix
 	}
 }
 
+static int is_null(double a, double precision)
+{
+	return (a<precision && a>(-precision));
+}
 
 int isDiagF(Matrix_f *a)
 {
@@ -353,7 +419,7 @@ int isDiagF(Matrix_f *a)
 	{
 		for(j=0; j<a->row; j++)
 		{
-			if(i!=j && a->data[i*a->column+j] !=0)
+			if(i!=j && !is_null(a->data[i*a->column+j], 10e-6))
 				return 0;
 		}
 	}
@@ -370,7 +436,7 @@ int isTriUF(Matrix_f *a)
 		{
 			if(i<=j)
 				continue;
-			if(a->data[i*a->column+j] !=0)
+			if(!is_null(a->data[i*a->column+j], 10e-6))
 				return 0;
 		}
 	}
@@ -387,7 +453,7 @@ int isTriLF(Matrix_f *a)
 		{
 			if(i>=j)
 				continue;
-			if(a->data[i*a->column+j] !=0)
+			if(!is_null(a->data[i*a->column+j], 10e-6))
 				return 0;
 		}
 	}
@@ -403,7 +469,7 @@ int isSparseF(Matrix_f *a)
 	{
 		for(j=0; j<a->row; j++)
 		{
-			if(a->data[i*a->column+j] == 0)
+			if(is_null(a->data[i*a->column+j], 10e-6))
 				++count;
 		}
 	}

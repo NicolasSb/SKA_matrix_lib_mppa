@@ -17,6 +17,10 @@ Include dependency graph for matrixi.\+c\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{structMatrix__i}{Matrix\+\_\+i} $\ast$ \hyperlink{matrixi_8c_a6365f70707f3847b14d55585db05079c}{read\+Matrix\+\_\+i\+\_\+\+File} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em reads a matrix from a binary file \end{DoxyCompactList}\item 
+int \hyperlink{matrixi_8c_a86f0cf175b5a3d31f5678c39c1bf29c5}{write\+Matrix\+\_\+i\+\_\+\+File} (char $\ast$filename, \hyperlink{structMatrix__i}{Matrix\+\_\+i} $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em writes a matrix in a binary file \end{DoxyCompactList}\item 
 void \hyperlink{matrixi_8c_a3fbc6603dffbe76a797d2cd62fb10ef5}{print\+MatrixI} (\hyperlink{structMatrix__i}{Matrix\+\_\+i} $\ast$a)
 \begin{DoxyCompactList}\small\item\em print\+MatrixI display a matrix of ints (usefull for testing) \end{DoxyCompactList}\item 
 \hyperlink{structMatrix__i}{Matrix\+\_\+i} $\ast$ \hyperlink{matrixi_8c_a568f89f9c49ca0932c1dc144b93412af}{matrix\+AllocI} (unsigned int rows, unsigned int column)
@@ -433,6 +437,25 @@ print\+MatrixI display a matrix of ints (usefull for testing)
 {\em a} & the matrix to display \\
 \hline
 \end{DoxyParams}
+\index{matrixi.\+c@{matrixi.\+c}!read\+Matrix\+\_\+i\+\_\+\+File@{read\+Matrix\+\_\+i\+\_\+\+File}}
+\index{read\+Matrix\+\_\+i\+\_\+\+File@{read\+Matrix\+\_\+i\+\_\+\+File}!matrixi.\+c@{matrixi.\+c}}
+\subsubsection[{\texorpdfstring{read\+Matrix\+\_\+i\+\_\+\+File(char $\ast$filename)}{readMatrix_i_File(char *filename)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+i}$\ast$ read\+Matrix\+\_\+i\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixi_8c_a6365f70707f3847b14d55585db05079c}{}\label{matrixi_8c_a6365f70707f3847b14d55585db05079c}
+
+
+reads a matrix from a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the writen matrix N\+U\+LL if there was an error 
+\end{DoxyReturn}
 \index{matrixi.\+c@{matrixi.\+c}!scale\+LineI@{scale\+LineI}}
 \index{scale\+LineI@{scale\+LineI}!matrixi.\+c@{matrixi.\+c}}
 \subsubsection[{\texorpdfstring{scale\+Line\+I(\+Matrix\+\_\+i $\ast$a, unsigned int i, int f)}{scaleLineI(Matrix_i *a, unsigned int i, int f)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+LineI (
@@ -522,3 +545,25 @@ sub\+X\+LinesI computes line i -\/ f$\ast$line i2 and store it into line i
 {\em f} & a to scale the matrix \\
 \hline
 \end{DoxyParams}
+\index{matrixi.\+c@{matrixi.\+c}!write\+Matrix\+\_\+i\+\_\+\+File@{write\+Matrix\+\_\+i\+\_\+\+File}}
+\index{write\+Matrix\+\_\+i\+\_\+\+File@{write\+Matrix\+\_\+i\+\_\+\+File}!matrixi.\+c@{matrixi.\+c}}
+\subsubsection[{\texorpdfstring{write\+Matrix\+\_\+i\+\_\+\+File(char $\ast$filename, Matrix\+\_\+i $\ast$ptr)}{writeMatrix_i_File(char *filename, Matrix_i *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}int write\+Matrix\+\_\+i\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{{\bf Matrix\+\_\+i} $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixi_8c_a86f0cf175b5a3d31f5678c39c1bf29c5}{}\label{matrixi_8c_a86f0cf175b5a3d31f5678c39c1bf29c5}
+
+
+writes a matrix in a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+{\em ptr} & the matrix to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 0 otherwise 
+\end{DoxyReturn}

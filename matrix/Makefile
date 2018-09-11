@@ -1,6 +1,3 @@
-#
-# Copyright (C) 2015-2017 Kalray SA. All rights reserved.
-#
 ARCH ?= k1b
 nb_cluster ?= 1
 cluster_system ?= bare
@@ -14,11 +11,8 @@ VPATH=source:include
 SOURCE=matrixcd.c matrixd.c matrixcf.c matrixf.c matrixi.c complex_f.c complex_d.c
 
 
-
-cluster-cflags := -fopenmp
-cluster-lflags := -fopenmp
-cflags-io := -fopenmp
-io-lflags := -fopenmp
+cflags := -fopenmp -Wall -Wextra -Winit-self -Wswitch-default -Wfloat-equal -Wundef -Wshadow -Werror -Wuninitialized
+lflags := -fopenmp
 
 matrix_io-srcs := $(SOURCE)
 matrix_io-name := matrix_io

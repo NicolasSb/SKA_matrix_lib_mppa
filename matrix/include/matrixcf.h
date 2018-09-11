@@ -3,7 +3,7 @@
 
 #include <pthread.h>
 #include "matrix_type.h"
-
+#include "complex_f.h"
 
 /****************************************************************************
 *
@@ -33,6 +33,22 @@ typedef enum M_Property
  *    Prototypes to handle matrix of Complex_f
  *
  * **************************************************/
+
+/**
+*	\brief reads a matrix from a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\return the writen matrix NULL if there was an error
+*/
+Matrix_cf * readMatrix_cf_File(char * filename);
+
+
+/**
+*	\brief writes a matrix in a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\param ptr the matrix to write
+*	\return 1 on success 0 otherwise
+*/
+int writeMatrix_cf_File(char * filename, Matrix_cf * ptr);
 
 /**
      * @brief printMatrixCF display a matrix of Complex_f (usefull for testing)

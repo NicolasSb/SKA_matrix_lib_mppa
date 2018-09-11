@@ -9,6 +9,26 @@
  * @date 10/09/2018
  **/
 
+
+static double mysqrt(double x) {
+    if (x <= 0)
+        return 0;
+    int exp = 0;
+    x = frexp(x, &exp);
+    if (exp & 1) {   
+        exp--;
+        x *= 2;
+    }
+    double y = (1+x)/2;
+    double z = 0;
+    while (y -z > 1e-8) {  
+        z = y;
+        y = (y + x/y) / 2;
+    }
+    return ldexp(y, exp/2); 
+}
+
+
 int equals_d(double a, double b, double precis)
 {
   if (fabs(a-b) < precis) return 1;
@@ -62,7 +82,7 @@ Complex_d multiplyD(Complex_d a, Complex_d b)
 Complex_d divD(Complex_d a, Complex_d b)
 {
     Complex_d res, tmp;
-    if(!equals(b.im, 0.0f, 1e-9))
+    if(!equals_d(b.im, 0.0f, 1e-9))
     {
         tmp = conjugateD(b);
         a = multiplyD(a, tmp);
@@ -95,7 +115,7 @@ Complex_d multiplyByConjD(Complex_d a)
 
 double gainD(Complex_d a)
 {
-    return sqrt(pow(a.im,2)+pow(a.re,2));
+    return mysqrt((a.im*a.im)+(a.re*a.re));
 }
 
 Complex_d createNulComplexD(void)

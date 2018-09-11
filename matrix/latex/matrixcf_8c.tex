@@ -1,12 +1,13 @@
-\hypertarget{matrixcf_8c}{}\section{matrixcf.\+c File Reference}
-\label{matrixcf_8c}\index{matrixcf.\+c@{matrixcf.\+c}}
+\hypertarget{matrixcf_8c}{}\section{source/matrixcf.c File Reference}
+\label{matrixcf_8c}\index{source/matrixcf.\+c@{source/matrixcf.\+c}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$math.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}matrixcf.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/matrixcf.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$omp.\+h$>$}\\*
-Include dependency graph for matrixcf.\+c\+:\nopagebreak
+Include dependency graph for matrixcf.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,6 +17,10 @@ Include dependency graph for matrixcf.\+c\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$ \hyperlink{matrixcf_8c_abb3375dc1b56cc7634728ca12202f21f}{read\+Matrix\+\_\+cf\+\_\+\+File} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em reads a matrix from a binary file \end{DoxyCompactList}\item 
+int \hyperlink{matrixcf_8c_a73b36ebf81f730ec44bbe530a65e03b6}{write\+Matrix\+\_\+cf\+\_\+\+File} (char $\ast$filename, \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em writes a matrix in a binary file \end{DoxyCompactList}\item 
 void \hyperlink{matrixcf_8c_a442e1077e0c8060c0fdb9f86de1534a9}{print\+Matrix\+CF} (\hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$a)
 \begin{DoxyCompactList}\small\item\em print\+Matrix\+CF display a matrix of \hyperlink{structComplex__f}{Complex\+\_\+f} (usefull for testing) \end{DoxyCompactList}\item 
 \hyperlink{structMatrix__cf}{Matrix\+\_\+cf} $\ast$ \hyperlink{matrixcf_8c_a39e7a96197ea705a3691639ce475f5a5}{matrix\+Alloc\+CF} (unsigned int rows, unsigned int column)
@@ -426,6 +431,25 @@ print\+Matrix\+CF display a matrix of \hyperlink{structComplex__f}{Complex\+\_\+
 {\em a} & the matrix to display \\
 \hline
 \end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!read\+Matrix\+\_\+cf\+\_\+\+File@{read\+Matrix\+\_\+cf\+\_\+\+File}}
+\index{read\+Matrix\+\_\+cf\+\_\+\+File@{read\+Matrix\+\_\+cf\+\_\+\+File}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{read\+Matrix\+\_\+cf\+\_\+\+File(char $\ast$filename)}{readMatrix_cf_File(char *filename)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix\+\_\+cf}$\ast$ read\+Matrix\+\_\+cf\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_abb3375dc1b56cc7634728ca12202f21f}{}\label{matrixcf_8c_abb3375dc1b56cc7634728ca12202f21f}
+
+
+reads a matrix from a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the writen matrix N\+U\+LL if there was an error 
+\end{DoxyReturn}
 \index{matrixcf.\+c@{matrixcf.\+c}!scale\+Line\+CF@{scale\+Line\+CF}}
 \index{scale\+Line\+CF@{scale\+Line\+CF}!matrixcf.\+c@{matrixcf.\+c}}
 \subsubsection[{\texorpdfstring{scale\+Line\+C\+F(\+Matrix\+\_\+cf $\ast$a, unsigned int i, Complex\+\_\+f f)}{scaleLineCF(Matrix_cf *a, unsigned int i, Complex_f f)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+Line\+CF (
@@ -511,3 +535,25 @@ sub\+X\+Lines\+CF computes line i -\/ f$\ast$line i2 and store it into line i
 {\em f} & a to scale the matrix \\
 \hline
 \end{DoxyParams}
+\index{matrixcf.\+c@{matrixcf.\+c}!write\+Matrix\+\_\+cf\+\_\+\+File@{write\+Matrix\+\_\+cf\+\_\+\+File}}
+\index{write\+Matrix\+\_\+cf\+\_\+\+File@{write\+Matrix\+\_\+cf\+\_\+\+File}!matrixcf.\+c@{matrixcf.\+c}}
+\subsubsection[{\texorpdfstring{write\+Matrix\+\_\+cf\+\_\+\+File(char $\ast$filename, Matrix\+\_\+cf $\ast$ptr)}{writeMatrix_cf_File(char *filename, Matrix_cf *ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}int write\+Matrix\+\_\+cf\+\_\+\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{{\bf Matrix\+\_\+cf} $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixcf_8c_a73b36ebf81f730ec44bbe530a65e03b6}{}\label{matrixcf_8c_a73b36ebf81f730ec44bbe530a65e03b6}
+
+
+writes a matrix in a binary file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file where the matrix is writen \\
+\hline
+{\em ptr} & the matrix to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 0 otherwise 
+\end{DoxyReturn}
