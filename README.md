@@ -43,3 +43,14 @@ _io\_bin-lflags_
 
 Matrices are not allocated in one block. To transfer the data from the io to a cluster, 
 do not send the pointer of the matrix, send the pointer its data instead and reconstruct the matrix afterwards.
+
+## Testing functions
+
+In the project is included a test bench for functions. Please add your own test if you modify ANYTHING in the code.
+to test the functions simply go into the test directory 
+```
+cd test matrix
+make run_hw  -B -j8 time_display=0
+```
+
+change the time display flag to 1  if you also want the profiling of the functions and the average speedup (calculated with matrix with 10K elements).
