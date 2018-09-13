@@ -11,7 +11,7 @@ VPATH=source:include
 SOURCE=matrixcd.c matrixd.c matrixcf.c matrixf.c matrixi.c complex_f.c complex_d.c
 
 
-cflags := -fopenmp -Wall -Wextra -Winit-self -Wswitch-default -Wfloat-equal -Wundef -Wshadow -Werror -Wuninitialized
+cflags := -fopenmp -Wall -Wextra -Winit-self -Wswitch-default -Wfloat-equal -Wundef -Wshadow -Wuninitialized
 lflags := -fopenmp
 
 matrix_io-srcs := $(SOURCE)

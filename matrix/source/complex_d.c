@@ -20,9 +20,8 @@ static double mysqrt(double x) {
         x *= 2;
     }
     double y = (1+x)/2;
-    double z = 0;
-    while (y -z > 1e-8) {  
-        z = y;
+	unsigned int i;
+    for(i=0; i<6; i++){  
         y = (y + x/y) / 2;
     }
     return ldexp(y, exp/2); 
@@ -109,7 +108,7 @@ Complex_d multiplyByConjD(Complex_d a)
 {
     Complex_d res;
     res.im=0;
-    res.re=2*a.re + 2*a.im;
+    res.re=a.re*a.re + a.im*a.im;
     return res;
 }
 

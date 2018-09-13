@@ -290,7 +290,7 @@ void subMatrixF(Matrix_f *a, Matrix_f *b)
         }
     }
 }
-
+/*
 void mulMatrixF(Matrix_f *a, Matrix_f *b, Matrix_f *c)
 {
 	if( a && b && c)
@@ -306,13 +306,36 @@ void mulMatrixF(Matrix_f *a, Matrix_f *b, Matrix_f *c)
 				{
 					tmp += a->data[i*a->column+k]*b->data[k*b->column+j];
 				}
-				c->data[i*c->column+j] =tmp;
+				c->data[i*c->column+j] = tmp;
 				tmp = 0;
 			}
 		}
 	}
 }
+*/
 
+void mulMatrixF(Matrix_f *a, Matrix_f *b, Matrix_f *c)
+{
+	if( a && b && c)
+	{
+		unsigned int i, j, k;
+		float tmp = 0.f;
+		#pragma omp parallel for private(i,j,k) shared(a,b,c)
+		for (i = 0; i< a->row; i++)
+		{	
+			for(j = 0; j< b->column; j++)
+			{
+				for(k = 0; k < a->column; k++)
+				{
+					asm("ffma %0 = %3, %1, %2 \n\t;;" : "+r"(tmp) : "r"(a->data[i*a->column+k]), "r"(b->data[k*b->column+j]), "r"(tmp) : );
+					//tmp += a->data[i*a->column+k]*b->data[k*b->column+j];
+				}
+				c->data[i*c->column+j] = tmp;
+				tmp = 0;
+			}
+		}
+	}
+}
 void matRefF(Matrix_f *A)
 {
     if (A)

@@ -4,6 +4,8 @@
 ARCH ?= k1b
 nb_cluster ?= 1
 time_display ?= 0
+test_matrix ?= 1
+test_complex ?= 1
 cluster_system ?= bare
 
 arch := $(ARCH)
@@ -11,7 +13,7 @@ board := developer
 
 VPATH=include:test/test_head:test/test_src
 
-SRC = test_matrixf.c test_matrixd.c test_matrixi.c test_matrixcf.c test_matrixcd.c
+SRC = test_matrixf.c test_matrixd.c test_matrixi.c test_matrixcf.c test_matrixcd.c test_complex_f.c test_complex_d.c
 
 system-name := bare
 COMPILE_OPTI := -O3
@@ -21,7 +23,7 @@ cflags := -Wall -Wextra -Winit-self -Wswitch-default -Wfloat-equal -Wundef -Wsha
 cluster-bin := cluster_bin
 cluster-system := $(cluster_system)
 cluster_bin-srcs := cluster.c $(SRC)
-cluster-cflags := -g -DNB_CLUSTER=$(nb_cluster) -DTIME_DISPLAY=$(time_display) ${COMPILE_OPTI} -mhypervisor -I . -std=gnu99 -fopenmp
+cluster-cflags := -g -DNB_CLUSTER=$(nb_cluster) -DTEST_MATRIX=$(test_matrix) -DTEST_COMPLEX=$(test_complex) -DTIME_DISPLAY=$(time_display) ${COMPILE_OPTI} -mhypervisor -I . -std=gnu99 -fopenmp
 cluster-lflags := -g -mhypervisor -Wl,--defsym=USER_STACK_SIZE=0x2000 -Wl,--defsym=KSTACK_SIZE=0x1000 ../matrix/output/lib/cluster/libmatrix_c.a -fopenmp
 ifeq ($(cluster_system), bare)
 cluster-lflags += -lvbsp -lutask -lmppa_remote -lmppa_async -lmppa_request_engine -lmppapower -lmppanoc -lmpparouting -Wl,--defsym=_LIBNOC_DISABLE_FIFO_FULL_CHECK=0

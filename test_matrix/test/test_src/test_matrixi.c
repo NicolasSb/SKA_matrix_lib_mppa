@@ -26,7 +26,6 @@
 
 #define CHIP_FREQ (__bsp_frequency/1000)
 
-#define NB_TESTI 13
 
 
 

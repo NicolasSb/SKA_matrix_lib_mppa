@@ -37,11 +37,22 @@
 #include "test/test_head/test_matrixd.h"
 #include "test/test_head/test_matrixcf.h"
 #include "test/test_head/test_matrixcd.h"
+#include "test/test_head/test_complex_f.h"
+#include "test/test_head/test_complex_d.h"
 
 #define N_CORES 1
 #define NB_CLIENTS (N_CORES-1)
 #define FETCH_LEN (4)
 #define OFFSET 1000
+
+
+#ifndef TEST_MATRIX
+#define TEST_MATRIX 1
+#endif
+
+#ifndef TEST_COMPLEX
+#define TEST_COMPLEX 1
+#endif
 
 int tmp[N_CORES][FETCH_LEN];
 pthread_barrier_t barrier;
@@ -52,11 +63,17 @@ void* task_routine(void *arg __attribute__((unused)))
 
 	pthread_barrier_wait(&barrier);
 
-	testAllI();
+	#if TEST_MATRIX == 1
 	testAllF();
 	testAllD();
+	testAllI();
 	testAllCF();
 	testAllCD();
+	#endif
+	#if TEST_COMPLEX ==1
+	testAll_cpxF();
+	testAll_cpxD();
+	#endif
 
 	pthread_barrier_wait(&barrier);
 

@@ -1,6 +1,6 @@
 #include "../include/complex_f.h"
 
-
+#include <stdint.h>
 /**
  * @file complex_f.c to handle basic complexes functions
  * @author Nicolas Sourbier
@@ -18,9 +18,8 @@ static double mysqrt(double x) {
         x *= 2;
     }
     double y = (1+x)/2;
-    double z = 0;
-    while (y -z > 1e-8) {  
-        z = y;
+	unsigned int i;
+    for(i = 0; i< 6; i++){ 
         y = (y + x/y) / 2;
     }
     return ldexp(y, exp/2); 
@@ -43,6 +42,7 @@ Complex_f conjugateF(Complex_f c)
     res.im = __builtin_k1_fmulnrn(res.im,1); 
 	return res;
 }
+
 
 Complex_f addF(Complex_f a, Complex_f b)
 {
@@ -79,17 +79,17 @@ Complex_f multiplyF(Complex_f a, Complex_f b)
 Complex_f divF(Complex_f a, Complex_f b)
 {
     Complex_f res, tmp;
-    if(!equals_f(b.im, 0.0f, 1e-9))
+    if(!equals_f(b.im, 0.0f, 1e-6))// FAUX
     {
         tmp = conjugateF(b);
         a = multiplyF(a, tmp);
-        b = multiplyF(b, tmp);
-		res.re = __builtin_k1_fcdiv(a.re,b.re);
-		res.im = __builtin_k1_fcdiv(a.im, b.re);
-  }
-    else{
-        res.re = __builtin_k1_fcdiv(a.re,b.re);
-		res.im = __builtin_k1_fcdiv(a.im, b.re);
+        b = multiplyF(b, tmp); 
+		res.re = a.re/b.re;
+		res.im = a.im/b.re;
+    }
+    else{  
+        res.re = a.re/b.re;
+		res.im = a.im/b.re;
     }
     return res;
 }
@@ -97,9 +97,9 @@ Complex_f divF(Complex_f a, Complex_f b)
 Complex_f invF(Complex_f a)
 {
     Complex_f res;
-	float tmp = __builtin_k1_fcma(a.re,a.im,a.re,a.im);
-	res.re = __builtin_k1_fcdiv(a.re,tmp);
-    res.im = __builtin_k1_fcdiv(-a.im,tmp);
+	float tmp = __builtin_k1_fcma(a.im,a.re,a.re,a.im);
+	res.re = a.re/tmp;
+    res.im = -a.im/tmp;
     return res;
 }
 
@@ -107,7 +107,7 @@ Complex_f multiplyByConjF(Complex_f a)
 {
     Complex_f res;
     res.im=0;
-    res.re=2*a.re + 2*a.im;
+    res.re=a.re*a.re + a.im*a.im;
     return res;
 }
 

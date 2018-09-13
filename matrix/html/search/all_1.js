@@ -7,6 +7,7 @@ var searchData=
   ['complex_5ff_2ec',['complex_f.c',['../complex__f_8c.html',1,'']]],
   ['conjugated',['conjugateD',['../complex__d_8c.html#a6ab5931e3760650c97f8cd91eae5ec98',1,'complex_d.c']]],
   ['conjugatef',['conjugateF',['../complex__f_8c.html#a3301aa4f26a5a781576428a8de2552b6',1,'complex_f.c']]],
+  ['cplx_5ff',['cplx_f',['../unioncplx__f.html',1,'']]],
   ['createcomplexd',['createComplexD',['../complex__d_8c.html#ac18d884c91c84217cab8ed87b0512db2',1,'complex_d.c']]],
   ['createcomplexf',['createComplexF',['../complex__f_8c.html#a5c7b3c84b75536ccacada45b40f045b0',1,'complex_f.c']]],
   ['createidentitycd',['createIdentityCD',['../matrixcd_8c.html#ae75e700f3b7d09eb844e98f525c2a29e',1,'matrixcd.c']]],
