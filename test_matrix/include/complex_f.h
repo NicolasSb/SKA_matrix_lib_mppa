@@ -1,13 +1,18 @@
 #ifndef COMPLEXF_H
 #define COMPLEXF_H
 
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
+/**
+*	\struct Complex_f complex_f.h
+*	\brief complex float structure
+*/
 typedef struct Complex_f
 {
-    float re;
-    float im;
+    float re; /*!<real part of the complex. */
+    float im; /*!< imaginary part of the complex */
 }Complex_f;
 
 
@@ -15,17 +20,18 @@ typedef struct Complex_f
  *          ---- Useful functions for float complexes ----
  * *******************************************************************/
 
-/*
+/**
  *	@brief test the equality of two floats relatively to a precision
- *	@param a and b, the floats to compare
+ *	@param a and @param b the floats to compare.
+ *  @param precis the precision of the comparison
  *	@return 1 if equal, 0 otherwise
- */
+ **/
 int equals_f(float a, float b, float precis);
 
-/*
+/**
  *	@brief test if a complex is NULL relatively to a precision
  *	@return 1 if null, 0 otherwise
- */
+ **/
 int isNull_f(Complex_f a);
 
 /**

@@ -16,11 +16,6 @@ typedef struct Complex_f
 }Complex_f;
 
 
-typedef union{
-	long long v;
-	Complex_f c;
-}cplx_f;
-
 /**********************************************************************
  *          ---- Useful functions for float complexes ----
  * *******************************************************************/

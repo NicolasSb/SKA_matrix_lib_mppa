@@ -290,29 +290,28 @@ void subMatrixF(Matrix_f *a, Matrix_f *b)
         }
     }
 }
-/*
-void mulMatrixF(Matrix_f *a, Matrix_f *b, Matrix_f *c)
+
+void scaleSubMatrixF(Matrix_f *res, Matrix_f *mask, float l)
 {
-	if( a && b && c)
-	{
-		unsigned int i, j, k;
-		float tmp = 0.f;
-		#pragma omp parallel for private(i,j,k) shared(a,b,c)
-		for (i = 0; i< a->row; i++)
-		{	
-			for(j = 0; j< b->column; j++)
-			{
-				for(k = 0; k < a->column; k++)
-				{
-					tmp += a->data[i*a->column+k]*b->data[k*b->column+j];
-				}
-				c->data[i*c->column+j] = tmp;
-				tmp = 0;
-			}
-		}
-	}
+	if (res && mask)
+    {
+        if ((res->column==mask->column) && (res->row==mask->row))
+        {
+            unsigned int i, j;
+            float tmpa, tmpb;
+			#pragma omp parallel for private(i,j) shared(res,mask)
+            for (i=0; i<res->row; i++)
+            {
+                for(j=0; j<res->column; j++)
+                {
+                    tmpa = res->data[i*res->column+j];
+                    tmpb = mask->data[i*mask->column+j];
+                    res->data[i*res->column+j] = tmpa-tmpb*l;
+                }
+            }
+        }
+    }
 }
-*/
 
 void mulMatrixF(Matrix_f *a, Matrix_f *b, Matrix_f *c)
 {

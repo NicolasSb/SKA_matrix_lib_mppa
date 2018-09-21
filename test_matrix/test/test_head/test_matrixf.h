@@ -17,6 +17,8 @@ void test_addMatrixTF();
 
 void test_subMatrixF();
 
+void test_scaleSubMatrixF();
+
 void test_mulMatrixF();
 
 void test_mulAddScaleMatrixF();

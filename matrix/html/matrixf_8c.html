@@ -156,6 +156,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aaaa2090c3e8c3f482be2d41c219528ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixf_8c.html#aaaa2090c3e8c3f482be2d41c219528ed">subMatrixF</a> (<a class="el" href="structMatrix__f.html">Matrix_f</a> *a, <a class="el" href="structMatrix__f.html">Matrix_f</a> *b)</td></tr>
 <tr class="memdesc:aaaa2090c3e8c3f482be2d41c219528ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">subMatrixF compute A = A-B  <a href="#aaaa2090c3e8c3f482be2d41c219528ed">More...</a><br /></td></tr>
 <tr class="separator:aaaa2090c3e8c3f482be2d41c219528ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813950c5218dab2898ef1a5bea4aaa9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixf_8c.html#a813950c5218dab2898ef1a5bea4aaa9f">scaleSubMatrixF</a> (<a class="el" href="structMatrix__f.html">Matrix_f</a> *res, <a class="el" href="structMatrix__f.html">Matrix_f</a> *mask, float l)</td></tr>
+<tr class="memdesc:a813950c5218dab2898ef1a5bea4aaa9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">subMatrixF compute res = res - l*mask used for deconvolution  <a href="#a813950c5218dab2898ef1a5bea4aaa9f">More...</a><br /></td></tr>
+<tr class="separator:a813950c5218dab2898ef1a5bea4aaa9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da9c79ac2fc5df2801284c79c379b36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixf_8c.html#a2da9c79ac2fc5df2801284c79c379b36">mulMatrixF</a> (<a class="el" href="structMatrix__f.html">Matrix_f</a> *a, <a class="el" href="structMatrix__f.html">Matrix_f</a> *b, <a class="el" href="structMatrix__f.html">Matrix_f</a> *c)</td></tr>
 <tr class="memdesc:a2da9c79ac2fc5df2801284c79c379b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute C = A*B  <a href="#a2da9c79ac2fc5df2801284c79c379b36">More...</a><br /></td></tr>
 <tr class="separator:a2da9c79ac2fc5df2801284c79c379b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -868,6 +871,48 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">a</td><td>the matrix to scale </td></tr>
     <tr><td class="paramname">c</td><td>the </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a813950c5218dab2898ef1a5bea4aaa9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scaleSubMatrixF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix__f.html">Matrix_f</a> *&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMatrix__f.html">Matrix_f</a> *&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>subMatrixF compute res = res - l*mask used for deconvolution </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">res</td><td>where to store the result </td></tr>
+    <tr><td class="paramname">mask</td><td>the matrix to substract from Res </td></tr>
+    <tr><td class="paramname">l</td><td>a coefficient to scale the mask </td></tr>
   </table>
   </dd>
 </dl>

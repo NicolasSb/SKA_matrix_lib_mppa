@@ -12,6 +12,7 @@ var searchData=
   ['scalematrixd',['scaleMatrixD',['../matrixd_8c.html#a26a3bae7e0207e93519cacc7f28b9f28',1,'matrixd.c']]],
   ['scalematrixf',['scaleMatrixF',['../matrixf_8c.html#a21f7154c7ca6e677418970cc0f7580b2',1,'matrixf.c']]],
   ['scalematrixi',['scaleMatrixI',['../matrixi_8c.html#affed5a1f5b929f9100007f6f81b8d803',1,'matrixi.c']]],
+  ['scalesubmatrixf',['scaleSubMatrixF',['../matrixf_8c.html#a813950c5218dab2898ef1a5bea4aaa9f',1,'matrixf.c']]],
   ['subd',['subD',['../complex__d_8c.html#a5db14373c0c0eb91f28d518faa9c24cc',1,'complex_d.c']]],
   ['subf',['subF',['../complex__f_8c.html#af097998e4898e6407ce54ed0da7280fb',1,'complex_f.c']]],
   ['submatrixcd',['subMatrixCD',['../matrixcd_8c.html#a1231119363733931d70aac9e36a67f88',1,'matrixcd.c']]],

@@ -65,6 +65,7 @@ void testAllF()
 	test_addMatrixF();
 	test_addMatrixTF();
 	test_subMatrixF();
+	test_scaleSubMatrixF();
 	test_mulMatrixF();
 	test_mulAddScaleMatrixF();
 	test_matRefF();
@@ -238,6 +239,58 @@ void test_subMatrixF()
 	subMatrixF(a, b);
 
 	float tab[9] = {0.f};
+	test_result(a, tab, __FUNCTION__);
+
+	freeMatrixF(a);
+	freeMatrixF(b);
+
+	#if TIME_DISPLAY == 1
+	unsigned int i;	
+
+	a = createRandomMatrixF(100,100);
+	b = createRandomMatrixF(100,100);
+
+	uint64_t start = __k1_read_dsu_timestamp();
+	omp_set_num_threads(1);
+	subMatrixF(a, b);
+	for(i = 0; i< 99; i++)
+		subMatrixF(b, b);
+
+	uint64_t end = __k1_read_dsu_timestamp();
+
+
+	float t1 = (float) ((end - start)/(float)CHIP_FREQ);
+	printf("\ttime using 1 thread : %.3f ms\n", t1/100);
+	
+	start = __k1_read_dsu_timestamp();
+	
+	omp_set_num_threads(16);
+	subMatrixF(a, b);
+	for(i = 0; i< 99; i++)
+		subMatrixF(b, b);
+	
+	end = __k1_read_dsu_timestamp();
+	
+	float t2 = (float) ((end - start)/(float)CHIP_FREQ);
+	printf("\ttime using 16 threads : %.3f ms\n", t2/100);
+	printf("\tspeedup is : %.3f\n", t1/t2);
+
+	freeMatrixF(a);
+	freeMatrixF(b);
+	#endif
+}
+
+void test_scaleSubMatrixF()
+{
+	Matrix_f *a = matrixAllocF(3,3);
+	createIdentityF(a);
+	Matrix_f *b = matrixAllocF(3,3);
+	createIdentityF(b);
+
+	
+	scaleSubMatrixF(a, b, 2);
+
+	float tab[9] = {-1.f,0.f,0.f,0.f,-1.f,0.f,0.f,0.f,-1.f};
 	test_result(a, tab, __FUNCTION__);
 
 	freeMatrixF(a);

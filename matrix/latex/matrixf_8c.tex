@@ -47,6 +47,8 @@ void \hyperlink{matrixf_8c_a41b29f1f48abd5b646772a036d89c8ca}{add\+Matrix\+TF} (
 \begin{DoxyCompactList}\small\item\em add\+Matrix\+TF compute A = A+\+BT BT being the transposed matrix of B \end{DoxyCompactList}\item 
 void \hyperlink{matrixf_8c_aaaa2090c3e8c3f482be2d41c219528ed}{sub\+MatrixF} (\hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$a, \hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$b)
 \begin{DoxyCompactList}\small\item\em sub\+MatrixF compute A = A-\/B \end{DoxyCompactList}\item 
+void \hyperlink{matrixf_8c_a813950c5218dab2898ef1a5bea4aaa9f}{scale\+Sub\+MatrixF} (\hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$res, \hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$mask, float l)
+\begin{DoxyCompactList}\small\item\em sub\+MatrixF compute res = res -\/ l$\ast$mask used for deconvolution \end{DoxyCompactList}\item 
 void \hyperlink{matrixf_8c_a2da9c79ac2fc5df2801284c79c379b36}{mul\+MatrixF} (\hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$a, \hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$b, \hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$c)
 \begin{DoxyCompactList}\small\item\em compute C = A$\ast$B \end{DoxyCompactList}\item 
 void \hyperlink{matrixf_8c_a64c4c676a46aebc9298c55e66ea90b7c}{mat\+RefF} (\hyperlink{structMatrix__f}{Matrix\+\_\+f} $\ast$A)
@@ -493,6 +495,28 @@ scale\+MatrixF multiply each data by a constant ()
 {\em a} & the matrix to scale \\
 \hline
 {\em c} & the \\
+\hline
+\end{DoxyParams}
+\index{matrixf.\+c@{matrixf.\+c}!scale\+Sub\+MatrixF@{scale\+Sub\+MatrixF}}
+\index{scale\+Sub\+MatrixF@{scale\+Sub\+MatrixF}!matrixf.\+c@{matrixf.\+c}}
+\subsubsection[{\texorpdfstring{scale\+Sub\+Matrix\+F(\+Matrix\+\_\+f $\ast$res, Matrix\+\_\+f $\ast$mask, float l)}{scaleSubMatrixF(Matrix_f *res, Matrix_f *mask, float l)}}]{\setlength{\rightskip}{0pt plus 5cm}void scale\+Sub\+MatrixF (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix\+\_\+f} $\ast$}]{res, }
+\item[{{\bf Matrix\+\_\+f} $\ast$}]{mask, }
+\item[{float}]{l}
+\end{DoxyParamCaption}
+)}\hypertarget{matrixf_8c_a813950c5218dab2898ef1a5bea4aaa9f}{}\label{matrixf_8c_a813950c5218dab2898ef1a5bea4aaa9f}
+
+
+sub\+MatrixF compute res = res -\/ l$\ast$mask used for deconvolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res} & where to store the result \\
+\hline
+{\em mask} & the matrix to substract from Res \\
+\hline
+{\em l} & a coefficient to scale the mask \\
 \hline
 \end{DoxyParams}
 \index{matrixf.\+c@{matrixf.\+c}!sub\+MatrixF@{sub\+MatrixF}}

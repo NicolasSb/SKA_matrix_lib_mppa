@@ -3,7 +3,7 @@
 
 #include <pthread.h>
 #include "matrix_type.h"
-
+#include "complex_f.h"
 
 /****************************************************************************
 *
@@ -35,6 +35,22 @@ typedef enum M_Property
  * **************************************************/
 
 /**
+*	\brief reads a matrix from a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\return the writen matrix NULL if there was an error
+*/
+Matrix_cf * readMatrix_cf_File(char * filename);
+
+
+/**
+*	\brief writes a matrix in a binary file
+*	\param filename	the name of the file where the matrix is writen
+*	\param ptr the matrix to write
+*	\return 1 on success 0 otherwise
+*/
+int writeMatrix_cf_File(char * filename, Matrix_cf * ptr);
+
+/**
      * @brief printMatrixCF display a matrix of Complex_f (usefull for testing)
      * @param a the matrix to display
      */
@@ -58,23 +74,21 @@ Matrix_cf * createRandomMatrixCF(unsigned int rows, unsigned int column);
 
 /**
      * @brief createRandomMatrix initialize a random Matrix
-     * @param rows number of rows
-     * @param column number of columns
+     * @param J a matrix to fill with zeros
      * @return the random matrix
      */
 void createZeroMatrixCF(Matrix_cf *J);
 
 /**
      * @brief createTestVector initialize a known vector of size 3:1
-     * @param rows number of rows
-     * @param column number of columns
+     * @param type (1 or 2) you can choose between two matrix
      * @return the random matrix
      */
 Matrix_cf *createTestVectorCF(unsigned int type);
 
 /**
      * @brief createIdentityCF compute the identoty matrix
-     * @param I A pointer to store the result
+     * @param id A pointer to store the result
      */
 void createIdentityCF(Matrix_cf *id);
 
@@ -107,7 +121,7 @@ void matrixSetCF(Matrix_cf *A, unsigned int i, unsigned int j, const Complex_f c
      * @brief scaleMatrixCF multiply each data by a constant ()
      * @param a the matrix to scale
      * @param c the 
-     * @todo Parallel programming
+
      */
 void scaleMatrixCF(Matrix_cf *a, const Complex_f c);
 
@@ -115,7 +129,7 @@ void scaleMatrixCF(Matrix_cf *a, const Complex_f c);
      * @brief addMatrixCF compute A = A+B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void addMatrixCF(Matrix_cf *a, Matrix_cf *b);
 
@@ -124,7 +138,7 @@ void addMatrixCF(Matrix_cf *a, Matrix_cf *b);
 	 * BT being the transposed matrix of B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void addMatrixTCF(Matrix_cf *a, Matrix_cf *b);
 
@@ -132,7 +146,7 @@ void addMatrixTCF(Matrix_cf *a, Matrix_cf *b);
      * @brief subMatrixCF compute A = A-B
      * @param a  matrix
      * @param b  matrix
-     * @todo Parallel programming
+
      */
 void subMatrixCF(Matrix_cf *a, Matrix_cf *b);
 
@@ -147,7 +161,7 @@ void mulMatrixCF(Matrix_cf *a, Matrix_cf *b, Matrix_cf *c);
 /**
      * @brief compute result = s*(mul1*mul2 + l*add)
      * @param result a matrix to store the result
-     * @param mul1 & mul2 matrices to multiply
+     * @param mul1 & @param mul2 matrices to multiply
      * @param add a matrix to add to the previous product
 	 * @param l a Complex_f to scale the add matrix
 	 * @param s a Complex_f to scale the result

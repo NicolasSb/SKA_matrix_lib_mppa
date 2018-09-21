@@ -32,50 +32,72 @@ typedef enum M_Property
 	M_DENSE
 }M_Property;
 
-
+/**
+*	\struct Matrix_f matrix_type.h
+*	\brief floating point matrix type
+*/
 typedef struct Matrix_f //done
 {
-	M_data_type data_type;
-	unsigned int row;
-	unsigned int column;
-	float * data;
-	M_Property prop;
+	M_data_type data_type;  /*!< type of data stored in the matrix - used for verification */
+	unsigned int row;		/*!< number of rows of the matrix*/
+	unsigned int column;	/*!< number of columns of the matrix*/
+	float * data;			/*!< array containing the data*/
+	M_Property prop;		/*!< property of the matrix (for optimizations)*/
 }Matrix_f;
 
+/**
+*	\struct Matrix_d matrix_type.h
+*	\brief double precision matrix type
+*/
 typedef struct Matrix_d //done
 {
-	M_data_type data_type;
-	unsigned int row;
-	unsigned int column;
-	double * data;
-	M_Property prop;
+	M_data_type data_type;	/*!< type of data stored in the matrix - used for verification */
+	unsigned int row;		/*!< number of rows of the matrix*/
+	unsigned int column;	/*!< number of columns of the matrix*/
+	double * data;			/*!< array containing the data*/
+	M_Property prop;		/*!< property of the matrix (for optimizations)*/
 }Matrix_d;
 
+
+/**
+*	\struct Matrix_i matrix_type.h
+*	\brief integer matrix type
+*/
 typedef struct Matrix_i
 {
-	M_data_type data_type;
-	unsigned int row;
-	unsigned int column;
-	int * data;
-	M_Property prop;
+	M_data_type data_type;	/*!< type of data stored in the matrix - used for verification */
+	unsigned int row;		/*!< number of rows of the matrix*/
+	unsigned int column;	/*!< number of columns of the matrix*/
+	int * data;				/*!< array containing the data*/
+	M_Property prop;		/*!< property of the matrix (for optimizations)*/
 }Matrix_i;
 
+
+/**
+*	\struct Matrix_cf matrix_type.h
+*	\brief complex float matrix type
+*/
 typedef struct Matrix_cf //done
 {
-	M_data_type data_type;
-	unsigned int row;
-	unsigned int column;
-	Complex_f * data;
-	M_Property prop;
+	M_data_type data_type;	/*!< type of data stored in the matrix - used for verification */
+	unsigned int row;		/*!< number of rows of the matrix*/
+	unsigned int column;	/*!< number of columns of the matrix*/
+	Complex_f * data;		/*!< array containing the data*/
+	M_Property prop;		/*!< property of the matrix (for optimizations)*/
 }Matrix_cf;
 
+
+/**
+*	\struct Matrix_cd matrix_type.h
+*	\brief complex double matrix type
+*/
 typedef struct Matrix_cd //done
 {
-	M_data_type data_type;
-	unsigned int row;
-	unsigned int column;
-	Complex_d * data;
-	M_Property prop;
+	M_data_type data_type;	/*!< type of data stored in the matrix - used for verification */
+	unsigned int row;		/*!< number of rows of the matrix*/
+	unsigned int column;	/*!< number of columns of the matrix*/
+	Complex_d * data;		/*!< array containing the data*/
+	M_Property prop;		/*!< property of the matrix (for optimizations)*/
 }Matrix_cd;
 
 

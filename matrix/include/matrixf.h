@@ -150,6 +150,15 @@ void addMatrixTF(Matrix_f *a, Matrix_f *b);
 void subMatrixF(Matrix_f *a, Matrix_f *b);
 
 /**
+     * @brief subMatrixF compute res = res - l*mask
+	 * used for deconvolution
+     * @param res  where to store the result
+     * @param mask the matrix to substract from Res
+	 * @param l a coefficient to scale the mask
+     */
+void scaleSubMatrixF(Matrix_f *res, Matrix_f *mask, float l);
+
+/**
      * @brief compute C = A*B
      * @param a  matrix
      * @param b  matrix
